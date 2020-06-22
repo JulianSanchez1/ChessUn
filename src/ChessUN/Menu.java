@@ -10,10 +10,6 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
-        Fondo p = new Fondo(true);
-        //p.setBorder(new EmptyBorder(5, 5, 5, 5));
-        //p.setLayout(new BorderLayout(0, 0));
-        setContentPane(p);
         initComponents();
     }
 
@@ -26,11 +22,13 @@ public class Menu extends javax.swing.JFrame {
         jL_Jugar = new javax.swing.JLabel();
         jL_ComoJugar = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChessUN");
         setAutoRequestFocus(false);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jB_Jugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Jugar.png"))); // NOI18N
         jB_Jugar.setAutoscrolls(true);
@@ -43,6 +41,7 @@ public class Menu extends javax.swing.JFrame {
                 jB_JugarActionPerformed(evt);
             }
         });
+        getContentPane().add(jB_Jugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 228, 254, -1));
 
         jB_ComoJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/ComoJugar.png"))); // NOI18N
         jB_ComoJugar.setBorder(null);
@@ -53,58 +52,27 @@ public class Menu extends javax.swing.JFrame {
                 jB_ComoJugarActionPerformed(evt);
             }
         });
+        getContentPane().add(jB_ComoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 228, 233, -1));
 
         jL_Jugar.setFont(new java.awt.Font("Mathematica6", 3, 36)); // NOI18N
         jL_Jugar.setForeground(new java.awt.Color(255, 255, 255));
         jL_Jugar.setText("Jugar");
+        getContentPane().add(jL_Jugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 155, 139, -1));
 
         jL_ComoJugar.setFont(new java.awt.Font("Mathematica6", 3, 36)); // NOI18N
         jL_ComoJugar.setForeground(new java.awt.Color(255, 255, 255));
         jL_ComoJugar.setText("Como Jugar");
+        getContentPane().add(jL_ComoJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 155, 222, -1));
 
         Titulo.setFont(new java.awt.Font("Mathematica6", 3, 64)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("ChessUN");
         Titulo.setToolTipText("");
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 41, 381, 70));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jL_Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jB_Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jL_ComoJugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_ComoJugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jL_Jugar)
-                    .addComponent(jL_ComoJugar))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jB_Jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jB_ComoJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -128,8 +96,6 @@ public class Menu extends javax.swing.JFrame {
         public void run() {
         try {
             new Menu().setVisible(true);
-                Fondo frame = new Fondo(true);
-                frame.setVisible(true);
                 } catch (Exception e) {
                 e.printStackTrace();
                             }
@@ -143,5 +109,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jB_Jugar;
     private javax.swing.JLabel jL_ComoJugar;
     private javax.swing.JLabel jL_Jugar;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
