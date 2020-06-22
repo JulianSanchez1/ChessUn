@@ -5,8 +5,19 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public class Partida extends javax.swing.JFrame {
-    private Timer tiempo;
-    public int segundo=0,minuto=0;
+    private Timer tiempo,tiempob;
+    public int segundo=0,minuto=0, segundoB=0,minutoB=0;
+    private ActionListener acciones1 = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(segundoB==0){
+                minutoB--;
+                segundoB=60;
+            }
+            segundoB--;
+            actualizarTiempo();
+        }
+    }; 
     private ActionListener acciones = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -26,6 +37,8 @@ public class Partida extends javax.swing.JFrame {
     public void actualizarTiempo(){
         String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
         tiempoN.setText(texto);
+        String texto1 = (minutoB<=9?"0":"")+minutoB+":"+(segundoB<=9?"0":"")+segundoB;
+        tiempoB.setText(texto1);
     }
     public Partida(int m,boolean b) {
         
@@ -33,15 +46,20 @@ public class Partida extends javax.swing.JFrame {
         setContentPane(p);
         initComponents();
         tiempo = new Timer(1000,acciones);
+        tiempob = new Timer(1000,acciones1);
         if (b == true){
             minuto=m;
+            minutoB=m;
             String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
             tiempoN.setText(texto);
+            tiempoB.setText(texto);
         }
         else{
             String texto = "";
             tiempoN.setText(texto);
+            tiempoB.setText(texto);
         }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +70,7 @@ public class Partida extends javax.swing.JFrame {
         tiempoN = new javax.swing.JLabel();
         tiempoB = new javax.swing.JLabel();
         iniciar = new javax.swing.JButton();
+        iniciarb = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChessUN");
@@ -82,6 +101,13 @@ public class Partida extends javax.swing.JFrame {
             }
         });
 
+        iniciarb.setText("IniciarN");
+        iniciarb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,23 +116,29 @@ public class Partida extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(480, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iniciar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(484, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iniciar))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(tiempoB, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(214, 214, 214))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(iniciarb)))
+                .addGap(144, 144, 144))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(122, 122, 122)
-                .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(iniciar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(tiempoB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iniciar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tiempoB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iniciarb))
                 .addGap(75, 75, 75)
                 .addComponent(jButton1))
         );
@@ -122,10 +154,19 @@ public class Partida extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
+        tiempob.stop();
         tiempo.start();
         iniciar.setEnabled(false);
-        //tiempo.stop();
+        iniciarb.setEnabled(true);
     }//GEN-LAST:event_iniciarActionPerformed
+
+    private void iniciarbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarbActionPerformed
+        tiempo.stop();
+        tiempob.start();
+        iniciarb.setEnabled(false);
+        iniciar.setEnabled(true);
+        //tiempo.stop();
+    }//GEN-LAST:event_iniciarbActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -135,6 +176,7 @@ public static void main(String args[]) {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton iniciar;
+    private javax.swing.JButton iniciarb;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel tiempoB;
     private javax.swing.JLabel tiempoN;
