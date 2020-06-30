@@ -71,10 +71,15 @@ public class Partida extends javax.swing.JFrame {
         tiempoB = new javax.swing.JLabel();
         iniciar = new javax.swing.JButton();
         iniciarb = new javax.swing.JButton();
+        Titulo = new javax.swing.JLabel();
+        Titulo1 = new javax.swing.JLabel();
+        jB_Jugar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChessUN");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/atras.png"))); // NOI18N
         jButton1.setBorder(null);
@@ -85,14 +90,17 @@ public class Partida extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 423, -1, -1));
 
         tiempoN.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 36)); // NOI18N
         tiempoN.setForeground(new java.awt.Color(255, 255, 255));
         tiempoN.setText("00:00");
+        getContentPane().add(tiempoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 122, 116, 47));
 
         tiempoB.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 36)); // NOI18N
         tiempoB.setForeground(new java.awt.Color(255, 255, 255));
         tiempoB.setText("00:00");
+        getContentPane().add(tiempoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 304, 103, 44));
 
         iniciar.setText("Iniciar");
         iniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +108,7 @@ public class Partida extends javax.swing.JFrame {
                 iniciarActionPerformed(evt);
             }
         });
+        getContentPane().add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 144, -1, -1));
 
         iniciarb.setText("IniciarN");
         iniciarb.addActionListener(new java.awt.event.ActionListener() {
@@ -107,41 +116,36 @@ public class Partida extends javax.swing.JFrame {
                 iniciarbActionPerformed(evt);
             }
         });
+        getContentPane().add(iniciarb, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 325, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(484, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iniciar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tiempoB, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(iniciarb)))
-                .addGap(144, 144, 144))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tiempoN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(iniciar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tiempoB, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(iniciarb))
-                .addGap(75, 75, 75)
-                .addComponent(jButton1))
-        );
+        Titulo.setFont(new java.awt.Font("Mathematica6", 3, 64)); // NOI18N
+        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Titulo.setText("Negras");
+        Titulo.setToolTipText("");
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
+
+        Titulo1.setFont(new java.awt.Font("Mathematica6", 3, 64)); // NOI18N
+        Titulo1.setForeground(new java.awt.Color(255, 255, 255));
+        Titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Titulo1.setText("Blancas");
+        Titulo1.setToolTipText("");
+        getContentPane().add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
+
+        jB_Jugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Piezas/ReyB1.png"))); // NOI18N
+        jB_Jugar.setAutoscrolls(true);
+        jB_Jugar.setBorder(null);
+        jB_Jugar.setBorderPainted(false);
+        jB_Jugar.setContentAreaFilled(false);
+        jB_Jugar.setInheritsPopupMenu(true);
+        jB_Jugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_JugarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jB_Jugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 390, 50, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -167,6 +171,12 @@ public class Partida extends javax.swing.JFrame {
         iniciar.setEnabled(true);
         //tiempo.stop();
     }//GEN-LAST:event_iniciarbActionPerformed
+
+    private void jB_JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_JugarActionPerformed
+        this.setVisible(true);
+        Jugar p = new Jugar(this);
+        p.setVisible(true);
+    }//GEN-LAST:event_jB_JugarActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -175,9 +185,13 @@ public static void main(String args[]) {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel Titulo1;
     private javax.swing.JButton iniciar;
     private javax.swing.JButton iniciarb;
+    private javax.swing.JButton jB_Jugar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel tiempoB;
     private javax.swing.JLabel tiempoN;
     // End of variables declaration//GEN-END:variables
