@@ -35,6 +35,10 @@ public class ComoJugar extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         jL_Tficha = new javax.swing.JLabel();
         jL_Instrucciones = new javax.swing.JLabel();
+        jL_Instrucciones1 = new javax.swing.JLabel();
+        jL_Instrucciones2 = new javax.swing.JLabel();
+        jL_Instrucciones3 = new javax.swing.JLabel();
+        jL_Instrucciones4 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -141,11 +145,35 @@ public class ComoJugar extends javax.swing.JFrame {
         jL_Tficha.setText("Torre");
         jL_Tficha.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jL_Instrucciones.setFont(new java.awt.Font("Mathematica6", 3, 36)); // NOI18N
+        jL_Instrucciones.setFont(new java.awt.Font("Mathematica6", 3, 18)); // NOI18N
         jL_Instrucciones.setForeground(new java.awt.Color(255, 255, 255));
         jL_Instrucciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jL_Instrucciones.setText(".");
+        jL_Instrucciones.setText("La torre se desplaza en línea recta");
         jL_Instrucciones.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jL_Instrucciones1.setFont(new java.awt.Font("Mathematica6", 3, 18)); // NOI18N
+        jL_Instrucciones1.setForeground(new java.awt.Color(255, 255, 255));
+        jL_Instrucciones1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jL_Instrucciones1.setText("por las filas y columnas, tantas ");
+        jL_Instrucciones1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jL_Instrucciones2.setFont(new java.awt.Font("Mathematica6", 3, 18)); // NOI18N
+        jL_Instrucciones2.setForeground(new java.awt.Color(255, 255, 255));
+        jL_Instrucciones2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jL_Instrucciones2.setText("retroceder o moverse en dirección");
+        jL_Instrucciones2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jL_Instrucciones3.setFont(new java.awt.Font("Mathematica6", 3, 18)); // NOI18N
+        jL_Instrucciones3.setForeground(new java.awt.Color(255, 255, 255));
+        jL_Instrucciones3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jL_Instrucciones3.setText("casillas como quiera. puede avanzar ");
+        jL_Instrucciones3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jL_Instrucciones4.setFont(new java.awt.Font("Mathematica6", 3, 18)); // NOI18N
+        jL_Instrucciones4.setForeground(new java.awt.Color(255, 255, 255));
+        jL_Instrucciones4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jL_Instrucciones4.setText("horizontal.");
+        jL_Instrucciones4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,6 +186,8 @@ public class ComoJugar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jL_Instrucciones4, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jL_Instrucciones1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jL_Instrucciones, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jL_Tficha, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -173,7 +203,9 @@ public class ComoJugar extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jB_Rey, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jB_atras))))
+                        .addComponent(jB_atras))
+                    .addComponent(jL_Instrucciones3)
+                    .addComponent(jL_Instrucciones2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,8 +215,16 @@ public class ComoJugar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_Tficha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jL_Instrucciones, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jL_Instrucciones)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jL_Instrucciones1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jL_Instrucciones3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jL_Instrucciones2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jL_Instrucciones4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,6 +291,10 @@ public class ComoJugar extends javax.swing.JFrame {
     private javax.swing.JButton jB_Torre;
     private javax.swing.JButton jB_atras;
     private javax.swing.JLabel jL_Instrucciones;
+    private javax.swing.JLabel jL_Instrucciones1;
+    private javax.swing.JLabel jL_Instrucciones2;
+    private javax.swing.JLabel jL_Instrucciones3;
+    private javax.swing.JLabel jL_Instrucciones4;
     private javax.swing.JLabel jL_Tficha;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;

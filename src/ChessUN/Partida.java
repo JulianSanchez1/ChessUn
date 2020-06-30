@@ -73,8 +73,72 @@ public class Partida extends javax.swing.JFrame {
         iniciarb = new javax.swing.JButton();
         Titulo = new javax.swing.JLabel();
         Titulo1 = new javax.swing.JLabel();
-        jB_Jugar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        a8 = new javax.swing.JButton();
+        b8 = new javax.swing.JButton();
+        c8 = new javax.swing.JButton();
+        d8 = new javax.swing.JButton();
+        e8 = new javax.swing.JButton();
+        f8 = new javax.swing.JButton();
+        g8 = new javax.swing.JButton();
+        h8 = new javax.swing.JButton();
+        a7 = new javax.swing.JButton();
+        b7 = new javax.swing.JButton();
+        c7 = new javax.swing.JButton();
+        d7 = new javax.swing.JButton();
+        e7 = new javax.swing.JButton();
+        f7 = new javax.swing.JButton();
+        g7 = new javax.swing.JButton();
+        h7 = new javax.swing.JButton();
+        a6 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        c6 = new javax.swing.JButton();
+        d6 = new javax.swing.JButton();
+        e6 = new javax.swing.JButton();
+        f6 = new javax.swing.JButton();
+        g6 = new javax.swing.JButton();
+        h6 = new javax.swing.JButton();
+        a5 = new javax.swing.JButton();
+        b5 = new javax.swing.JButton();
+        c5 = new javax.swing.JButton();
+        d5 = new javax.swing.JButton();
+        e5 = new javax.swing.JButton();
+        f5 = new javax.swing.JButton();
+        g5 = new javax.swing.JButton();
+        h5 = new javax.swing.JButton();
+        a4 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
+        c4 = new javax.swing.JButton();
+        d4 = new javax.swing.JButton();
+        e4 = new javax.swing.JButton();
+        f4 = new javax.swing.JButton();
+        g4 = new javax.swing.JButton();
+        h4 = new javax.swing.JButton();
+        a3 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
+        c3 = new javax.swing.JButton();
+        d3 = new javax.swing.JButton();
+        e3 = new javax.swing.JButton();
+        f3 = new javax.swing.JButton();
+        g3 = new javax.swing.JButton();
+        h3 = new javax.swing.JButton();
+        a2 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        c2 = new javax.swing.JButton();
+        d2 = new javax.swing.JButton();
+        e2 = new javax.swing.JButton();
+        f2 = new javax.swing.JButton();
+        g2 = new javax.swing.JButton();
+        h2 = new javax.swing.JButton();
+        a1 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        c1 = new javax.swing.JButton();
+        d1 = new javax.swing.JButton();
+        e1 = new javax.swing.JButton();
+        f1 = new javax.swing.JButton();
+        g1 = new javax.swing.JButton();
+        h1 = new javax.swing.JButton();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChessUN");
@@ -131,21 +195,92 @@ public class Partida extends javax.swing.JFrame {
         Titulo1.setToolTipText("");
         getContentPane().add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
 
-        jB_Jugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Piezas/ReyB1.png"))); // NOI18N
-        jB_Jugar.setAutoscrolls(true);
-        jB_Jugar.setBorder(null);
-        jB_Jugar.setBorderPainted(false);
-        jB_Jugar.setContentAreaFilled(false);
-        jB_Jugar.setInheritsPopupMenu(true);
-        jB_Jugar.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setPreferredSize(new java.awt.Dimension(405, 405));
+        jPanel1.setLayout(new java.awt.GridLayout(8, 8));
+        jPanel1.add(a8);
+
+        b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_JugarActionPerformed(evt);
+                b8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Jugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 390, 50, 50));
+        jPanel1.add(b8);
+        jPanel1.add(c8);
+        jPanel1.add(d8);
+        jPanel1.add(e8);
+        jPanel1.add(f8);
+        jPanel1.add(g8);
+        jPanel1.add(h8);
+        jPanel1.add(a7);
+        jPanel1.add(b7);
+        jPanel1.add(c7);
+        jPanel1.add(d7);
+        jPanel1.add(e7);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
+        f7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(f7);
+        jPanel1.add(g7);
+        jPanel1.add(h7);
+        jPanel1.add(a6);
+        jPanel1.add(b6);
+        jPanel1.add(c6);
+        jPanel1.add(d6);
+        jPanel1.add(e6);
+        jPanel1.add(f6);
+        jPanel1.add(g6);
+        jPanel1.add(h6);
+        jPanel1.add(a5);
+        jPanel1.add(b5);
+        jPanel1.add(c5);
+        jPanel1.add(d5);
+        jPanel1.add(e5);
+        jPanel1.add(f5);
+        jPanel1.add(g5);
+        jPanel1.add(h5);
+        jPanel1.add(a4);
+        jPanel1.add(b4);
+        jPanel1.add(c4);
+        jPanel1.add(d4);
+        jPanel1.add(e4);
+        jPanel1.add(f4);
+        jPanel1.add(g4);
+        jPanel1.add(h4);
+        jPanel1.add(a3);
+        jPanel1.add(b3);
+        jPanel1.add(c3);
+        jPanel1.add(d3);
+        jPanel1.add(e3);
+        jPanel1.add(f3);
+        jPanel1.add(g3);
+        jPanel1.add(h3);
+        jPanel1.add(a2);
+        jPanel1.add(b2);
+        jPanel1.add(c2);
+        jPanel1.add(d2);
+        jPanel1.add(e2);
+        jPanel1.add(f2);
+        jPanel1.add(g2);
+        jPanel1.add(h2);
+
+        a1.setBackground(new java.awt.Color(0, 0, 0));
+        a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/ComoJugarB/Torre.png"))); // NOI18N
+        jPanel1.add(a1);
+        jPanel1.add(b1);
+        jPanel1.add(c1);
+        jPanel1.add(d1);
+        jPanel1.add(e1);
+        jPanel1.add(f1);
+        jPanel1.add(g1);
+        jPanel1.add(h1);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 35, -1, 410));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -172,11 +307,13 @@ public class Partida extends javax.swing.JFrame {
         //tiempo.stop();
     }//GEN-LAST:event_iniciarbActionPerformed
 
-    private void jB_JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_JugarActionPerformed
-        this.setVisible(true);
-        Jugar p = new Jugar(this);
-        p.setVisible(true);
-    }//GEN-LAST:event_jB_JugarActionPerformed
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b8ActionPerformed
+
+    private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_f7ActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -185,13 +322,77 @@ public static void main(String args[]) {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
+    private javax.swing.JButton a1;
+    private javax.swing.JButton a2;
+    private javax.swing.JButton a3;
+    private javax.swing.JButton a4;
+    private javax.swing.JButton a5;
+    private javax.swing.JButton a6;
+    private javax.swing.JButton a7;
+    private javax.swing.JButton a8;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JButton b8;
+    private javax.swing.JButton c1;
+    private javax.swing.JButton c2;
+    private javax.swing.JButton c3;
+    private javax.swing.JButton c4;
+    private javax.swing.JButton c5;
+    private javax.swing.JButton c6;
+    private javax.swing.JButton c7;
+    private javax.swing.JButton c8;
+    private javax.swing.JButton d1;
+    private javax.swing.JButton d2;
+    private javax.swing.JButton d3;
+    private javax.swing.JButton d4;
+    private javax.swing.JButton d5;
+    private javax.swing.JButton d6;
+    private javax.swing.JButton d7;
+    private javax.swing.JButton d8;
+    private javax.swing.JButton e1;
+    private javax.swing.JButton e2;
+    private javax.swing.JButton e3;
+    private javax.swing.JButton e4;
+    private javax.swing.JButton e5;
+    private javax.swing.JButton e6;
+    private javax.swing.JButton e7;
+    private javax.swing.JButton e8;
+    private javax.swing.JButton f1;
+    private javax.swing.JButton f2;
+    private javax.swing.JButton f3;
+    private javax.swing.JButton f4;
+    private javax.swing.JButton f5;
+    private javax.swing.JButton f6;
+    private javax.swing.JButton f7;
+    private javax.swing.JButton f8;
+    private javax.swing.JButton g1;
+    private javax.swing.JButton g2;
+    private javax.swing.JButton g3;
+    private javax.swing.JButton g4;
+    private javax.swing.JButton g5;
+    private javax.swing.JButton g6;
+    private javax.swing.JButton g7;
+    private javax.swing.JButton g8;
+    private javax.swing.JButton h1;
+    private javax.swing.JButton h2;
+    private javax.swing.JButton h3;
+    private javax.swing.JButton h4;
+    private javax.swing.JButton h5;
+    private javax.swing.JButton h6;
+    private javax.swing.JButton h7;
+    private javax.swing.JButton h8;
     private javax.swing.JButton iniciar;
     private javax.swing.JButton iniciarb;
-    private javax.swing.JButton jB_Jugar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel tiempoB;
     private javax.swing.JLabel tiempoN;
     // End of variables declaration//GEN-END:variables
