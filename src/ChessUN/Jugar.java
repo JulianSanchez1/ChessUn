@@ -63,7 +63,7 @@ public class Jugar extends javax.swing.JFrame {
                 quincemActionPerformed(evt);
             }
         });
-        jPanel1.add(quincem, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        jPanel1.add(quincem, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 80, -1));
         quincem.getAccessibleContext().setAccessibleName(" 15 Minutos");
 
         diezm.setText("10 Minutos");

@@ -2,6 +2,8 @@ package ChessUN;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.Timer;
 
 public class Partida extends javax.swing.JFrame {
@@ -94,7 +96,6 @@ public class Partida extends javax.swing.JFrame {
         b6 = new javax.swing.JButton();
         c6 = new javax.swing.JButton();
         d6 = new javax.swing.JButton();
-        e6 = new javax.swing.JButton();
         f6 = new javax.swing.JButton();
         g6 = new javax.swing.JButton();
         h6 = new javax.swing.JButton();
@@ -103,6 +104,7 @@ public class Partida extends javax.swing.JFrame {
         c5 = new javax.swing.JButton();
         d5 = new javax.swing.JButton();
         e5 = new javax.swing.JButton();
+        e6 = new javax.swing.JButton();
         f5 = new javax.swing.JButton();
         g5 = new javax.swing.JButton();
         h5 = new javax.swing.JButton();
@@ -195,8 +197,18 @@ public class Partida extends javax.swing.JFrame {
         Titulo1.setToolTipText("");
         getContentPane().add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(405, 405));
         jPanel1.setLayout(new java.awt.GridLayout(8, 8));
+
+        a8.setBackground(new java.awt.Color(255, 255, 255));
+        a8.setBorderPainted(false);
+        a8.setFocusPainted(false);
+        a8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a8ActionPerformed(evt);
+            }
+        });
         jPanel1.add(a8);
 
         b8.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +223,10 @@ public class Partida extends javax.swing.JFrame {
         jPanel1.add(f8);
         jPanel1.add(g8);
         jPanel1.add(h8);
+
+        a7.setBackground(new java.awt.Color(0, 0, 0));
+        a7.setBorderPainted(false);
+        a7.setFocusPainted(false);
         jPanel1.add(a7);
         jPanel1.add(b7);
         jPanel1.add(c7);
@@ -225,22 +241,34 @@ public class Partida extends javax.swing.JFrame {
         jPanel1.add(f7);
         jPanel1.add(g7);
         jPanel1.add(h7);
+
+        a6.setBackground(new java.awt.Color(255, 255, 255));
+        a6.setBorderPainted(false);
+        a6.setFocusPainted(false);
         jPanel1.add(a6);
         jPanel1.add(b6);
         jPanel1.add(c6);
         jPanel1.add(d6);
-        jPanel1.add(e6);
         jPanel1.add(f6);
         jPanel1.add(g6);
         jPanel1.add(h6);
         jPanel1.add(a5);
+
+        b5.setBackground(new java.awt.Color(0, 0, 0));
+        b5.setBorderPainted(false);
+        b5.setFocusPainted(false);
         jPanel1.add(b5);
         jPanel1.add(c5);
         jPanel1.add(d5);
         jPanel1.add(e5);
+        jPanel1.add(e6);
         jPanel1.add(f5);
         jPanel1.add(g5);
         jPanel1.add(h5);
+
+        a4.setBackground(new java.awt.Color(255, 255, 255));
+        a4.setBorderPainted(false);
+        a4.setFocusPainted(false);
         jPanel1.add(a4);
         jPanel1.add(b4);
         jPanel1.add(c4);
@@ -249,6 +277,8 @@ public class Partida extends javax.swing.JFrame {
         jPanel1.add(f4);
         jPanel1.add(g4);
         jPanel1.add(h4);
+
+        a3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.add(a3);
         jPanel1.add(b3);
         jPanel1.add(c3);
@@ -257,7 +287,11 @@ public class Partida extends javax.swing.JFrame {
         jPanel1.add(f3);
         jPanel1.add(g3);
         jPanel1.add(h3);
+
+        a2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(a2);
+
+        b2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.add(b2);
         jPanel1.add(c2);
         jPanel1.add(d2);
@@ -268,6 +302,13 @@ public class Partida extends javax.swing.JFrame {
 
         a1.setBackground(new java.awt.Color(0, 0, 0));
         a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/ComoJugarB/Torre.png"))); // NOI18N
+        a1.setBorder(null);
+        a1.setBorderPainted(false);
+        a1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(a1);
         jPanel1.add(b1);
         jPanel1.add(c1);
@@ -291,7 +332,9 @@ public class Partida extends javax.swing.JFrame {
        Menu p=new Menu();
        p.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void dtorre(JButton boton){
+        boton.setIcon(new ImageIcon(getClass().getResource("/Multimedia/ComoJugarB/Dama.png")));
+    }
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
         tiempob.stop();
         tiempo.start();
@@ -314,6 +357,14 @@ public class Partida extends javax.swing.JFrame {
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_f7ActionPerformed
+
+    private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
+        dtorre(a8);
+    }//GEN-LAST:event_a8ActionPerformed
+
+    private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_a1ActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
