@@ -4,17 +4,22 @@ public class Pieza {
     private int x;
     private int y;
     final private boolean is_white;
+    private final String color;
     public Pieza(int x, int y, boolean is_white)
     {
         this.is_white = is_white;
         this.x = x;
         this.y = y;
+        this.color="";
     } 
     public boolean isWhite()
     {
         return is_white;
     }
-    
+    public String getColor()
+    {
+        return color;
+    }
     public boolean isBlack()
     {
         return !is_white;

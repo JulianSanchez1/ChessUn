@@ -10,11 +10,22 @@ package ChessUN;
  * @author julia
  */
 public class Rey extends Pieza{
+    public String color;
     public Rey(int x, int y, boolean is_white) {
         super(x, y, is_white);
+        if(is_white==true){
+            color="/Multimedia/Piezas/Rey.png";
+        }
+        else{
+            color="/Multimedia/Piezas/ReyN.png";
+        }
     }
     public boolean canMove(int destination_x, int destination_y)
     {       
         return true;
+    }
+    public String getColor()
+    {
+        return color;
     }
 }
