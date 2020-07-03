@@ -90,7 +90,6 @@ public class Torre extends Pieza{
                         return true;
                     }
                     if(Ficha_Presente(i,destino_y,fichaE)||Ficha_Presente(i,destino_y,fichaE)){
-                        System.out.println("BLABLA");
                         return false;
                     }
                 } 
