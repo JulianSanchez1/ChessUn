@@ -24,7 +24,6 @@ public class Torre extends Pieza{
     }
     public boolean canMove(int destino_x, int destino_y, ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {   
-        boolean temp=true;
         if(destino_x==x &&  destino_y!=y){
             if(destino_y>y){
                 for(int i = y+1 ; i < 8 ; i++){
@@ -61,7 +60,6 @@ public class Torre extends Pieza{
         }
         if(destino_y==y &&  destino_x!=x){
             if(destino_x>x){
-                System.out.println(3);
                 for(int i = x ; i < 8 ; i++){                 
                     if(Ficha_Presente(destino_x,destino_y,fichaE)){
                         return true;
@@ -78,7 +76,6 @@ public class Torre extends Pieza{
                 }
             }
             else{
-                System.out.println(4);
                 for(int i =x ; i > -1 ; i--){
                     if( i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE)){
                         return true;
@@ -93,7 +90,6 @@ public class Torre extends Pieza{
                         return false;
                     }
                 } 
-                return temp;
             }
         }
         return false;

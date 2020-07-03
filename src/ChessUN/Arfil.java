@@ -24,11 +24,75 @@ public class Arfil extends Pieza{
     }
     public boolean canMove(int destino_x, int destino_y, ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {   
-        for(int i = 0 ; i < (8-x) ; i++){
-            if(destino_x==x+i && y+i == destino_y && Ficha_Presente(destino_x,destino_y,fichaE)){
-                return true;
+        if(destino_x>x && destino_y>y){
+            for(int i = x+1, p = y+1; i < 8 && p < 8; i++, p++) 
+            {
+                if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaA)){
+                    return false; 
+                }
+                if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaE)){
+                    return true;
+                }
+                if( i==destino_x){
+                    return true;
+                }
+                if(Ficha_Presente(i,p,fichaE)||Ficha_Presente(i,p,fichaA)){
+                    return false;
+                }
             }
         }
+        if(destino_x>x && destino_y<y){
+            for(int i = x+1, p = y-1; i < 8 && p>-1; i++, p--) 
+            {
+                if(i==destino_x && Ficha_Presente(destino_x,destino_y,fichaA)){
+                    return false; 
+                }
+                if(i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE)){
+                    return true;
+                }
+                if( i==destino_x){
+                    return true;
+                }
+                if(Ficha_Presente(i,p,fichaE)||Ficha_Presente(i,p,fichaA)){
+                    return false;
+                }
+            }
+        }
+        if(destino_x<x && destino_y>y){ 
+            for(int i = x-1, p = y+1; i>-1 && p<8; i--, p++) {
+                if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaA)){
+                    return false; 
+                }
+                if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaE)){
+                    return true;
+                }
+                if( i==destino_x){
+                    return true;
+                }
+                if(Ficha_Presente(i,p,fichaE)||Ficha_Presente(i,p,fichaA)){
+                    return false;
+                }
+            }
+        }
+        
+        if(destino_x<x && destino_y<y){
+            for(int i = x-1, p = y-1; i>-1 && p>-1; i--, p--) 
+            {
+                
+                if(i==destino_x && Ficha_Presente(destino_x,destino_y,fichaA)){                   
+                    return false; 
+                }
+                if(i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE)){
+                    return true;
+                }
+                if( i==destino_x){
+                    return true;
+                }
+                if(Ficha_Presente(i,p,fichaE)||Ficha_Presente(i,p,fichaA)){
+                    return false;
+                }
+            }
+        }       
         return false;
     }
     public String getColor()
