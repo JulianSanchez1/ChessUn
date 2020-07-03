@@ -1,9 +1,11 @@
 package ChessUN;
 
+import java.util.ArrayList;
+
 public class Pieza {
-    private int x;
-    private int y;
-    final private boolean is_white;
+    public int x;
+    public int y;
+    final public boolean is_white;
     private final String color;
     public Pieza(int x, int y, boolean is_white)
     {
@@ -44,8 +46,19 @@ public class Pieza {
     {
         return y;
     }
+    public boolean Ficha_Presente(int destino_x, int destino_y,ArrayList<Pieza> fichaE){
+        for (int i = 0; i < fichaE.size(); i++)
+            {
+                int x1 = fichaE.get(i).getX();
+                int y1 = fichaE.get(i).getY();
+                if (destino_x==x1&&destino_y==y1){
+                    return true;
+                }
+            }
+        return false;
+    }
     
-    public boolean canMove(int destination_x, int destination_y)
+    public boolean canMove(int destination_x, int destination_y,ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {
         return false;
     }

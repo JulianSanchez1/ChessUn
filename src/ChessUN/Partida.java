@@ -632,6 +632,7 @@ public final class Partida extends javax.swing.JFrame {
         jPanel1.add(d4);
 
         e4.setBackground(new java.awt.Color(255, 255, 255));
+        e4.setBorderPainted(false);
         e4.setFocusPainted(false);
         e4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -923,9 +924,7 @@ public final class Partida extends javax.swing.JFrame {
        Menu p=new Menu();
        p.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void dtorre(JButton boton){
-        boton.setIcon(new ImageIcon(getClass().getResource("/Multimedia/ComoJugarB/Dama.png")));
-    }
+
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
         tiempob.stop();
         tiempo.start();

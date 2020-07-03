@@ -5,6 +5,8 @@
  */
 package ChessUN;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author julia
@@ -20,7 +22,7 @@ public class Reina extends Pieza{
             color="/Multimedia/Piezas/DamaN.png";
         }
     }
-    public boolean canMove(int destination_x, int destination_y)
+    public boolean canMove(int destination_x, int destination_y, ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {       
         return true;
     }

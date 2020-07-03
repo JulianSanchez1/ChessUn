@@ -5,6 +5,8 @@
  */
 package ChessUN;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author julia
@@ -20,9 +22,14 @@ public class Arfil extends Pieza{
             color="/Multimedia/Piezas/ArfilN.png";
         }
     }
-    public boolean canMove(int destination_x, int destination_y)
-    {       
-        return true;
+    public boolean canMove(int destino_x, int destino_y, ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
+    {   
+        for(int i = 0 ; i < (8-x) ; i++){
+            if(destino_x==x+i && y+i == destino_y && Ficha_Presente(destino_x,destino_y,fichaE)){
+                return true;
+            }
+        }
+        return false;
     }
     public String getColor()
     {
