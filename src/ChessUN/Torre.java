@@ -9,86 +9,113 @@ import java.util.ArrayList;
 
 /**
  *
- * @author julia
+ * @author julian Sanchez
  */
 public class Torre extends Pieza{
     public String color;
-    public Torre(int x, int y, boolean is_white) {
+    public Torre(int x, int y, boolean is_white){
         super(x, y, is_white);
-        if(is_white==true){
+        if(is_white==true)
+        {
             color="/Multimedia/Piezas/Torre.png";
         }
-        else{
+        else
+        {
             color="/Multimedia/Piezas/TorreN.png";
         }
     }
     public boolean canMove(int destino_x, int destino_y, ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {   
-        if(destino_x==x &&  destino_y!=y){
-            if(destino_y>y){
-                for(int i = y+1 ; i < 8 ; i++){
-                    if(Ficha_Presente(destino_x,destino_y,fichaE)){
-                        return true;
-                    }
-                    if(Ficha_Presente(destino_x,destino_y,fichaA)){
+        if(destino_x==x &&  destino_y!=y)
+        {
+            if(destino_y>y)
+            {//Movimiento hacia la derecha
+                for(int i = y+1 ; i < 8 ; i++)
+                {
+                    if(Ficha_Presente(destino_x,destino_y,fichaA))
+                    {//Detecta si una ficha de su equipo esta en el lugar de llegada
                         return false; 
                     }
-                    if( i==destino_y){
+                    if( i==destino_y)
+                    {//Si llega al destino y no hay fichas en el camino acepta el movimiento
                         return true;
                     }
-                    if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA)){
+                    if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA))
+                    {//Detecta si hay fichas en el camino al destino
                         return false;
+                    }
+                    if(i==destino_y && Ficha_Presente(destino_x,destino_y,fichaE))
+                    {//si hay una ficha en el destino y es enemiga puede matarla
+                        return true;
                     }
                 }
             }
-            else{
-                for(int i =y-1 ; i > -1 ; i--){
-                    if(Ficha_Presente(destino_x,destino_y,fichaE)){
-                        return true;
-                    }
-                    if(Ficha_Presente(destino_x,destino_y,fichaA)){
+            else{//movimiento hacia la izquierda
+                for(int i =y-1 ; i > -1 ; i--)
+                {
+                    if(Ficha_Presente(destino_x,destino_y,fichaA))
+                    {
                         return false; 
                     }
-                    if( i==destino_y){
+                    if( i==destino_y)
+                    {
                         return true;
                     }
-                    if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA)){
+                    if( i==destino_y && Ficha_Presente(destino_x,destino_y,fichaE))
+                    {
+                        return true;
+                    }
+                    if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA))
+                    {
                         return false;
                     }
                 }               
             }
         }
-        if(destino_y==y &&  destino_x!=x){
-            if(destino_x>x){
-                for(int i = x ; i < 8 ; i++){                 
-                    if(Ficha_Presente(destino_x,destino_y,fichaE)){
+        if(destino_y==y &&  destino_x!=x)
+        {
+            if(destino_x>x)
+            {//Movimiento hacia abajo
+                for(int i = x+1 ; i < 8 ; i++)
+                {                 
+                    if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaE))
+                    {
                         return true;
                     }
-                    if(Ficha_Presente(destino_x,destino_y,fichaA)){
+                    if(Ficha_Presente(destino_x,destino_y,fichaA))
+                    {
                         return false; 
                     }
-                    if( i==destino_x){
+                    if( i==destino_x)
+                    {
                         return true;
                     }
-                    if(Ficha_Presente(i,destino_y,fichaE)||Ficha_Presente(i,destino_y,fichaE)){
+                    if(Ficha_Presente(i,destino_y,fichaA)||Ficha_Presente(i,destino_y,fichaE))
+                    {
                         return false;
                     }
                 }
             }
-            else{
-                for(int i =x ; i > -1 ; i--){
-                    if( i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE)){
-                        return true;
-                    }
-                    if( i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaA)){                        
+            else
+            {//movimiento hacia arriba
+                for(int i =x-1 ; i > -1 ; i--)
+                {
+                    if( i==destino_x && Ficha_Presente(destino_x,destino_y,fichaA))
+                    {                        
                         return false; 
                     }
-                    if( i==destino_x){
+                    if( i==destino_x)
+                    {
                         return true;
                     }
-                    if(Ficha_Presente(i,destino_y,fichaE)||Ficha_Presente(i,destino_y,fichaE)){
-                        return false;
+                    if( i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE))
+                    {
+                        return true;
                     }
+                    if(Ficha_Presente(i,destino_y,fichaA)||Ficha_Presente(i,destino_y,fichaE))
+                    {
+                        return false;
+                    }   
                 } 
             }
         }

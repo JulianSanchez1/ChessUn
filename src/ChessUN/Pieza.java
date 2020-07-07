@@ -52,6 +52,9 @@ public class Pieza {
                 int x1 = fichaE.get(i).getX();
                 int y1 = fichaE.get(i).getY();
                 if (destino_x==x1&&destino_y==y1){
+                    /*System.out.println(i);
+                    System.out.println(fichaE.get(i).getColor());
+                    System.out.println(destino_x+" "+destino_y+" "+x+" "+y);*/
                     return true;
                 }
             }
