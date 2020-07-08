@@ -11,8 +11,6 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         Fondo p = new Fondo(true);
-        //p.setBorder(new EmptyBorder(5, 5, 5, 5));
-        //p.setLayout(new BorderLayout(0, 0));
         setContentPane(p);
         initComponents();
     }
@@ -131,7 +129,6 @@ public class Menu extends javax.swing.JFrame {
                 Fondo frame = new Fondo(true);
                 frame.setVisible(true);
                 } catch (Exception e) {
-                e.printStackTrace();
                             }
                     }
         });

@@ -10,7 +10,7 @@ public final class Partida extends javax.swing.JFrame {
     private Timer tiempo,tiempob;
     public int segundo=0,minuto=0, segundoB=0,minutoB=0;
     public Tablero tablero = new Tablero();
-    public boolean turn1;
+    public boolean time=true;
     private ActionListener acciones1 = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -22,7 +22,7 @@ public final class Partida extends javax.swing.JFrame {
             actualizarTiempo();
         }
     }; 
-    private ActionListener acciones = new ActionListener() {
+    private ActionListener acciones = new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent ae) {
             if(segundo==0){
@@ -42,43 +42,67 @@ public final class Partida extends javax.swing.JFrame {
         String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
         tiempoN.setText(texto);
         String texto1 = (minutoB<=9?"0":"")+minutoB+":"+(segundoB<=9?"0":"")+segundoB;
+        if((minuto==0 && segundo==0) || (minutoB==0 && segundoB==0)){
+            Ganador();
+        }
         tiempoB.setText(texto1);
     }
     public void temporizador(boolean turn){
         if(turn==true){
-            tiempo.stop();
-            tiempob.start();
+            if(time==true){
+                tiempo.stop();
+                tiempob.start();
+            }
             TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
             TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
         }
         else{
-            tiempob.stop();
-            tiempo.start();
+            if(time==true){
+                tiempob.stop();
+                tiempo.start();
+            }
             TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
             TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
         }
     }
+    public void Ganador(){
+        if(tablero.getTurno()==true){
+            this.setVisible(false);
+            Ganador g=new Ganador(false);
+            g.setVisible(true);
+        }
+        else{
+            this.setVisible(false);
+            Ganador g=new Ganador(true);
+            g.setVisible(true);
+        }
+
+    }
     public Partida(int m,boolean b) {
-        
         Fondo p = new Fondo(false);
         setContentPane(p);
         initComponents();
-        
-        tiempo = new Timer(1000,acciones);
-        tiempob = new Timer(1000,acciones1);
-        if (b == true){
-            minuto=m;
-            minutoB=m;
-            String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
-            tiempoN.setText(texto);
-            tiempoB.setText(texto);
+        if(m==120){
+            time=false;
+            tiempoN.setText("--:--");
+            tiempoB.setText("--:--");
         }
-        else{
-            String texto = "";
-            tiempoN.setText(texto);
-            tiempoB.setText(texto);
+        if(time==true){
+            tiempo = new Timer(1000,acciones);
+            tiempob = new Timer(1000,acciones1);
+            if (b == true){
+                minuto=m;
+                minutoB=m;
+                String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
+                tiempoN.setText(texto);
+                tiempoB.setText(texto);
+            }
+            else{
+                String texto = "";
+                tiempoN.setText(texto);
+                tiempoB.setText(texto);
+            }
         }
-        
         addBotonesT(tablero);
         tablero.OrdenarTablero();
         
@@ -153,6 +177,7 @@ public final class Partida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         tiempoN = new javax.swing.JLabel();
         tiempoB = new javax.swing.JLabel();
@@ -225,7 +250,10 @@ public final class Partida extends javax.swing.JFrame {
         h1 = new javax.swing.JButton();
         TurnoNegras = new javax.swing.JLabel();
         TurnoBlancas = new javax.swing.JLabel();
+        ganador = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChessUN");
@@ -264,7 +292,7 @@ public final class Partida extends javax.swing.JFrame {
         Titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo1.setText("Blancas");
         Titulo1.setToolTipText("");
-        getContentPane().add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
+        getContentPane().add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(405, 405));
@@ -855,6 +883,13 @@ public final class Partida extends javax.swing.JFrame {
         TurnoBlancas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Prendido.png"))); // NOI18N
         getContentPane().add(TurnoBlancas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 70, 30));
 
+        ganador.setFont(new java.awt.Font("Mathematica6", 3, 40)); // NOI18N
+        ganador.setForeground(new java.awt.Color(255, 255, 255));
+        ganador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganador.setText(" ");
+        ganador.setToolTipText("");
+        getContentPane().add(ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 340, -1));
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -870,386 +905,322 @@ public final class Partida extends javax.swing.JFrame {
     
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
         tablero.mover(0,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b8ActionPerformed
 
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
         tablero.mover(1,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f7ActionPerformed
 
     private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
         tablero.mover(0,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a8ActionPerformed
 
     private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
         tablero.mover(7,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a1ActionPerformed
 
     private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
         tablero.mover(4,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f4ActionPerformed
 
     private void c8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c8ActionPerformed
         tablero.mover(0,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c8ActionPerformed
 
     private void d8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d8ActionPerformed
         tablero.mover(0,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d8ActionPerformed
 
     private void e8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e8ActionPerformed
         tablero.mover(0,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e8ActionPerformed
 
     private void f8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f8ActionPerformed
         tablero.mover(0,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f8ActionPerformed
 
     private void g8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g8ActionPerformed
         tablero.mover(0,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g8ActionPerformed
 
     private void h8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h8ActionPerformed
         tablero.mover(0,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h8ActionPerformed
 
     private void a7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a7ActionPerformed
         tablero.mover(1,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a7ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
         tablero.mover(1,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b7ActionPerformed
 
     private void c7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c7ActionPerformed
         tablero.mover(1,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c7ActionPerformed
 
     private void d7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d7ActionPerformed
         tablero.mover(1,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d7ActionPerformed
 
     private void e7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e7ActionPerformed
         tablero.mover(1,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e7ActionPerformed
 
     private void g7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g7ActionPerformed
         tablero.mover(1,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g7ActionPerformed
 
     private void h7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h7ActionPerformed
         tablero.mover(1,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h7ActionPerformed
 
     private void a6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a6ActionPerformed
         tablero.mover(2,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a6ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
         tablero.mover(2,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b6ActionPerformed
 
     private void c6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c6ActionPerformed
         tablero.mover(2,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c6ActionPerformed
 
     private void d6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d6ActionPerformed
         tablero.mover(2,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d6ActionPerformed
 
     private void e6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e6ActionPerformed
         tablero.mover(2,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e6ActionPerformed
 
     private void f6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f6ActionPerformed
         tablero.mover(2,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f6ActionPerformed
 
     private void g6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g6ActionPerformed
         tablero.mover(2,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g6ActionPerformed
 
     private void h6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h6ActionPerformed
         tablero.mover(2,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h6ActionPerformed
 
     private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
         tablero.mover(3,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a5ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
         tablero.mover(3,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b5ActionPerformed
 
     private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
         tablero.mover(3,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c5ActionPerformed
 
     private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
         tablero.mover(3,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d5ActionPerformed
 
     private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
         tablero.mover(3,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e5ActionPerformed
 
     private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
         tablero.mover(3,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f5ActionPerformed
 
     private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
         tablero.mover(3,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g5ActionPerformed
 
     private void h5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h5ActionPerformed
         tablero.mover(3,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h5ActionPerformed
 
     private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
         tablero.mover(4,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a4ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
         tablero.mover(4,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b4ActionPerformed
 
     private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
         tablero.mover(4,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c4ActionPerformed
 
     private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
         tablero.mover(4,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d4ActionPerformed
 
     private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
         tablero.mover(4,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e4ActionPerformed
 
     private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
         tablero.mover(4,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g4ActionPerformed
 
     private void h4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h4ActionPerformed
         tablero.mover(4,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h4ActionPerformed
 
     private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
         tablero.mover(5,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a3ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         tablero.mover(5,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b3ActionPerformed
 
     private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
         tablero.mover(5,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c3ActionPerformed
 
     private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
         tablero.mover(5,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d3ActionPerformed
 
     private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
         tablero.mover(5,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e3ActionPerformed
 
     private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
         tablero.mover(5,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f3ActionPerformed
 
     private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
         tablero.mover(5,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g3ActionPerformed
 
     private void h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3ActionPerformed
         tablero.mover(5,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h3ActionPerformed
 
     private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
         tablero.mover(6,0);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_a2ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         tablero.mover(6,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b2ActionPerformed
 
     private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
         tablero.mover(6,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c2ActionPerformed
 
     private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
         tablero.mover(6,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d2ActionPerformed
 
     private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
         tablero.mover(6,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e2ActionPerformed
 
     private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
         tablero.mover(6,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f2ActionPerformed
 
     private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
         tablero.mover(6,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g2ActionPerformed
 
     private void h2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h2ActionPerformed
         tablero.mover(6,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h2ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         tablero.mover(7,1);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_b1ActionPerformed
 
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
         tablero.mover(7,2);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_c1ActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
         tablero.mover(7,3);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_d1ActionPerformed
 
     private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
         tablero.mover(7,4);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_e1ActionPerformed
 
     private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
         tablero.mover(7,5);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_f1ActionPerformed
 
     private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
         tablero.mover(7,6);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_g1ActionPerformed
 
     private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
         tablero.mover(7,7);
-        turn1=tablero.getTurno();
-        temporizador(turn1);
+        temporizador(tablero.getTurno());
     }//GEN-LAST:event_h1ActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1320,6 +1291,7 @@ public static void main(String args[]) {
     private javax.swing.JButton g6;
     private javax.swing.JButton g7;
     private javax.swing.JButton g8;
+    private javax.swing.JLabel ganador;
     private javax.swing.JButton h1;
     private javax.swing.JButton h2;
     private javax.swing.JButton h3;
@@ -1329,6 +1301,7 @@ public static void main(String args[]) {
     private javax.swing.JButton h7;
     private javax.swing.JButton h8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel tiempoB;
     private javax.swing.JLabel tiempoN;

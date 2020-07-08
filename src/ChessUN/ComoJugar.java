@@ -294,7 +294,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a8.setBackground(new java.awt.Color(255, 255, 255));
         a8.setBorderPainted(false);
-        a8.setFocusPainted(false);
         a8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a8ActionPerformed(evt);
@@ -304,7 +303,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b8.setBackground(new java.awt.Color(0, 0, 0));
         b8.setBorderPainted(false);
-        b8.setFocusPainted(false);
         b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ActionPerformed(evt);
@@ -314,7 +312,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c8.setBackground(new java.awt.Color(255, 255, 255));
         c8.setBorderPainted(false);
-        c8.setFocusPainted(false);
         c8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c8ActionPerformed(evt);
@@ -324,7 +321,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d8.setBackground(new java.awt.Color(0, 0, 0));
         d8.setBorderPainted(false);
-        d8.setFocusPainted(false);
         d8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d8ActionPerformed(evt);
@@ -334,7 +330,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e8.setBackground(new java.awt.Color(255, 255, 255));
         e8.setBorderPainted(false);
-        e8.setFocusPainted(false);
         e8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e8ActionPerformed(evt);
@@ -344,7 +339,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f8.setBackground(new java.awt.Color(0, 0, 0));
         f8.setBorderPainted(false);
-        f8.setFocusPainted(false);
         f8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f8ActionPerformed(evt);
@@ -354,7 +348,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g8.setBackground(new java.awt.Color(255, 255, 255));
         g8.setBorderPainted(false);
-        g8.setFocusPainted(false);
         g8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g8ActionPerformed(evt);
@@ -364,7 +357,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h8.setBackground(new java.awt.Color(0, 0, 0));
         h8.setBorderPainted(false);
-        h8.setFocusPainted(false);
         h8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h8ActionPerformed(evt);
@@ -374,7 +366,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a7.setBackground(new java.awt.Color(0, 0, 0));
         a7.setBorderPainted(false);
-        a7.setFocusPainted(false);
         a7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a7ActionPerformed(evt);
@@ -384,7 +375,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b7.setBackground(new java.awt.Color(255, 255, 255));
         b7.setBorderPainted(false);
-        b7.setFocusPainted(false);
         b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ActionPerformed(evt);
@@ -394,7 +384,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c7.setBackground(new java.awt.Color(0, 0, 0));
         c7.setBorderPainted(false);
-        c7.setFocusPainted(false);
         c7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c7ActionPerformed(evt);
@@ -404,7 +393,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d7.setBackground(new java.awt.Color(255, 255, 255));
         d7.setBorderPainted(false);
-        d7.setFocusPainted(false);
         d7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d7ActionPerformed(evt);
@@ -414,7 +402,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e7.setBackground(new java.awt.Color(0, 0, 0));
         e7.setBorderPainted(false);
-        e7.setFocusPainted(false);
         e7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e7ActionPerformed(evt);
@@ -424,7 +411,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f7.setBackground(new java.awt.Color(255, 255, 255));
         f7.setBorderPainted(false);
-        f7.setFocusPainted(false);
         f7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f7ActionPerformed(evt);
@@ -434,7 +420,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g7.setBackground(new java.awt.Color(0, 0, 0));
         g7.setBorderPainted(false);
-        g7.setFocusPainted(false);
         g7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g7ActionPerformed(evt);
@@ -444,7 +429,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h7.setBackground(new java.awt.Color(255, 255, 255));
         h7.setBorderPainted(false);
-        h7.setFocusPainted(false);
         h7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h7ActionPerformed(evt);
@@ -454,7 +438,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a6.setBackground(new java.awt.Color(255, 255, 255));
         a6.setBorderPainted(false);
-        a6.setFocusPainted(false);
         a6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a6ActionPerformed(evt);
@@ -464,7 +447,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b6.setBackground(new java.awt.Color(0, 0, 0));
         b6.setBorderPainted(false);
-        b6.setFocusPainted(false);
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
@@ -474,7 +456,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c6.setBackground(new java.awt.Color(255, 255, 255));
         c6.setBorderPainted(false);
-        c6.setFocusPainted(false);
         c6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c6ActionPerformed(evt);
@@ -484,7 +465,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d6.setBackground(new java.awt.Color(0, 0, 0));
         d6.setBorderPainted(false);
-        d6.setFocusPainted(false);
         d6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d6ActionPerformed(evt);
@@ -494,7 +474,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e6.setBackground(new java.awt.Color(255, 255, 255));
         e6.setBorderPainted(false);
-        e6.setFocusPainted(false);
         e6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e6ActionPerformed(evt);
@@ -504,7 +483,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f6.setBackground(new java.awt.Color(0, 0, 0));
         f6.setBorderPainted(false);
-        f6.setFocusPainted(false);
         f6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f6ActionPerformed(evt);
@@ -514,7 +492,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g6.setBackground(new java.awt.Color(255, 255, 255));
         g6.setBorderPainted(false);
-        g6.setFocusPainted(false);
         g6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g6ActionPerformed(evt);
@@ -524,7 +501,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h6.setBackground(new java.awt.Color(0, 0, 0));
         h6.setBorderPainted(false);
-        h6.setFocusPainted(false);
         h6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h6ActionPerformed(evt);
@@ -534,7 +510,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a5.setBackground(new java.awt.Color(0, 0, 0));
         a5.setBorderPainted(false);
-        a5.setFocusPainted(false);
         a5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a5ActionPerformed(evt);
@@ -544,7 +519,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b5.setBackground(new java.awt.Color(255, 255, 255));
         b5.setBorderPainted(false);
-        b5.setFocusPainted(false);
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -554,7 +528,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c5.setBackground(new java.awt.Color(0, 0, 0));
         c5.setBorderPainted(false);
-        c5.setFocusPainted(false);
         c5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c5ActionPerformed(evt);
@@ -564,7 +537,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d5.setBackground(new java.awt.Color(255, 255, 255));
         d5.setBorderPainted(false);
-        d5.setFocusPainted(false);
         d5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d5ActionPerformed(evt);
@@ -574,7 +546,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e5.setBackground(new java.awt.Color(0, 0, 0));
         e5.setBorderPainted(false);
-        e5.setFocusPainted(false);
         e5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e5ActionPerformed(evt);
@@ -584,7 +555,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f5.setBackground(new java.awt.Color(255, 255, 255));
         f5.setBorderPainted(false);
-        f5.setFocusPainted(false);
         f5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f5ActionPerformed(evt);
@@ -594,7 +564,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g5.setBackground(new java.awt.Color(0, 0, 0));
         g5.setBorderPainted(false);
-        g5.setFocusPainted(false);
         g5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g5ActionPerformed(evt);
@@ -604,7 +573,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h5.setBackground(new java.awt.Color(255, 255, 255));
         h5.setBorderPainted(false);
-        h5.setFocusPainted(false);
         h5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h5ActionPerformed(evt);
@@ -614,7 +582,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a4.setBackground(new java.awt.Color(255, 255, 255));
         a4.setBorderPainted(false);
-        a4.setFocusPainted(false);
         a4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a4ActionPerformed(evt);
@@ -624,7 +591,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b4.setBackground(new java.awt.Color(0, 0, 0));
         b4.setBorderPainted(false);
-        b4.setFocusPainted(false);
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -634,7 +600,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c4.setBackground(new java.awt.Color(255, 255, 255));
         c4.setBorderPainted(false);
-        c4.setFocusPainted(false);
         c4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c4ActionPerformed(evt);
@@ -644,7 +609,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d4.setBackground(new java.awt.Color(0, 0, 0));
         d4.setBorderPainted(false);
-        d4.setFocusPainted(false);
         d4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d4ActionPerformed(evt);
@@ -654,7 +618,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e4.setBackground(new java.awt.Color(255, 255, 255));
         e4.setBorderPainted(false);
-        e4.setFocusPainted(false);
         e4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e4ActionPerformed(evt);
@@ -664,7 +627,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f4.setBackground(new java.awt.Color(0, 0, 0));
         f4.setBorderPainted(false);
-        f4.setFocusPainted(false);
         f4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f4ActionPerformed(evt);
@@ -674,7 +636,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g4.setBackground(new java.awt.Color(255, 255, 255));
         g4.setBorderPainted(false);
-        g4.setFocusPainted(false);
         g4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g4ActionPerformed(evt);
@@ -684,7 +645,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h4.setBackground(new java.awt.Color(0, 0, 0));
         h4.setBorderPainted(false);
-        h4.setFocusPainted(false);
         h4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h4ActionPerformed(evt);
@@ -694,7 +654,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a3.setBackground(new java.awt.Color(0, 0, 0));
         a3.setBorderPainted(false);
-        a3.setFocusPainted(false);
         a3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a3ActionPerformed(evt);
@@ -704,7 +663,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b3.setBackground(new java.awt.Color(255, 255, 255));
         b3.setBorderPainted(false);
-        b3.setFocusPainted(false);
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -714,7 +672,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c3.setBackground(new java.awt.Color(0, 0, 0));
         c3.setBorderPainted(false);
-        c3.setFocusPainted(false);
         c3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c3ActionPerformed(evt);
@@ -724,7 +681,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d3.setBackground(new java.awt.Color(255, 255, 255));
         d3.setBorderPainted(false);
-        d3.setFocusPainted(false);
         d3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d3ActionPerformed(evt);
@@ -734,7 +690,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e3.setBackground(new java.awt.Color(0, 0, 0));
         e3.setBorderPainted(false);
-        e3.setFocusPainted(false);
         e3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e3ActionPerformed(evt);
@@ -744,7 +699,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f3.setBackground(new java.awt.Color(255, 255, 255));
         f3.setBorderPainted(false);
-        f3.setFocusPainted(false);
         f3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f3ActionPerformed(evt);
@@ -754,7 +708,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g3.setBackground(new java.awt.Color(0, 0, 0));
         g3.setBorderPainted(false);
-        g3.setFocusPainted(false);
         g3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g3ActionPerformed(evt);
@@ -764,7 +717,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h3.setBackground(new java.awt.Color(255, 255, 255));
         h3.setBorderPainted(false);
-        h3.setFocusPainted(false);
         h3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h3ActionPerformed(evt);
@@ -774,7 +726,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         a2.setBackground(new java.awt.Color(255, 255, 255));
         a2.setBorderPainted(false);
-        a2.setFocusPainted(false);
         a2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a2ActionPerformed(evt);
@@ -784,7 +735,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b2.setBackground(new java.awt.Color(0, 0, 0));
         b2.setBorderPainted(false);
-        b2.setFocusPainted(false);
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -794,7 +744,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c2.setBackground(new java.awt.Color(255, 255, 255));
         c2.setBorderPainted(false);
-        c2.setFocusPainted(false);
         c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ActionPerformed(evt);
@@ -804,7 +753,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         d2.setBackground(new java.awt.Color(0, 0, 0));
         d2.setBorderPainted(false);
-        d2.setFocusPainted(false);
         d2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d2ActionPerformed(evt);
@@ -814,7 +762,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e2.setBackground(new java.awt.Color(255, 255, 255));
         e2.setBorderPainted(false);
-        e2.setFocusPainted(false);
         e2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e2ActionPerformed(evt);
@@ -824,7 +771,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f2.setBackground(new java.awt.Color(0, 0, 0));
         f2.setBorderPainted(false);
-        f2.setFocusPainted(false);
         f2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f2ActionPerformed(evt);
@@ -834,7 +780,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g2.setBackground(new java.awt.Color(255, 255, 255));
         g2.setBorderPainted(false);
-        g2.setFocusPainted(false);
         g2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g2ActionPerformed(evt);
@@ -844,7 +789,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h2.setBackground(new java.awt.Color(0, 0, 0));
         h2.setBorderPainted(false);
-        h2.setFocusPainted(false);
         h2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h2ActionPerformed(evt);
@@ -864,7 +808,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setBorderPainted(false);
-        b1.setFocusPainted(false);
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -874,7 +817,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         c1.setBackground(new java.awt.Color(0, 0, 0));
         c1.setBorderPainted(false);
-        c1.setFocusPainted(false);
         c1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c1ActionPerformed(evt);
@@ -893,7 +835,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         e1.setBackground(new java.awt.Color(0, 0, 0));
         e1.setBorderPainted(false);
-        e1.setFocusPainted(false);
         e1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e1ActionPerformed(evt);
@@ -903,7 +844,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         f1.setBackground(new java.awt.Color(255, 255, 255));
         f1.setBorderPainted(false);
-        f1.setFocusPainted(false);
         f1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f1ActionPerformed(evt);
@@ -913,7 +853,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         g1.setBackground(new java.awt.Color(0, 0, 0));
         g1.setBorderPainted(false);
-        g1.setFocusPainted(false);
         g1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g1ActionPerformed(evt);
@@ -923,7 +862,6 @@ public class ComoJugar extends javax.swing.JFrame {
 
         h1.setBackground(new java.awt.Color(255, 255, 255));
         h1.setBorderPainted(false);
-        h1.setFocusPainted(false);
         h1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h1ActionPerformed(evt);
