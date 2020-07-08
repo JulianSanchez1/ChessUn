@@ -99,6 +99,30 @@ public class Tablero{
                             Piezas_Negras.remove(i);
                         }
                     }
+                if(Piezas_Blancas.get(num).getColor()=="/Multimedia/Piezas/Rey.png" && (y==2 || y==6))
+                {
+                    int ubicacion=100;
+                    if(y==2)
+                    {
+                        ubicacion=enroque(7,0,Piezas_Blancas);
+                        if(ubicacion!=100)
+                        {
+                            tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(null);
+                            Piezas_Blancas.get(ubicacion).setY(3);
+                            tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(ubicacion).getColor())));
+                        }
+                    }
+                    else
+                    {
+                        ubicacion=enroque(7,7,Piezas_Blancas);
+                        if(ubicacion!=100)
+                        {
+                            tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(null);
+                            Piezas_Blancas.get(ubicacion).setY(5);
+                            tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(ubicacion).getColor())));
+                        }
+                    }        
+                }
                 tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
                 Piezas_Blancas.get(num).setX(x);
                 Piezas_Blancas.get(num).setY(y);
@@ -139,6 +163,30 @@ public class Tablero{
                             Piezas_Blancas.remove(i);
                         }
                     }
+                if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/ReyN.png" && (y==2 || y==6))
+                {
+                    int ubicacion=100;
+                    if(y==2)
+                    {
+                        ubicacion=enroque(0,0,Piezas_Negras);
+                        if(ubicacion!=100)
+                        {
+                            tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(null);
+                            Piezas_Negras.get(ubicacion).setY(3);
+                            tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(ubicacion).getColor())));
+                        }
+                    }
+                    else
+                    {
+                        ubicacion=enroque(0,7,Piezas_Negras);
+                        if(ubicacion!=100)
+                        {
+                            tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(null);
+                            Piezas_Negras.get(ubicacion).setY(5);
+                            tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(ubicacion).getColor())));
+                        }
+                    }              
+                }
                 tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
                 Piezas_Negras.get(num).setX(x);
                 Piezas_Negras.get(num).setY(y);
@@ -152,6 +200,16 @@ public class Tablero{
         }
     }
     
-    
-    
+    public int enroque(int destino_x, int destino_y , ArrayList<Pieza> fichaE){
+        for (int i = 0; i < fichaE.size(); i++)
+            {
+                int x1 = fichaE.get(i).getX();
+                int y1 = fichaE.get(i).getY();
+                if (fichaE.get(i).getColor()=="/Multimedia/Piezas/Torre.png" || fichaE.get(i).getColor()=="/Multimedia/Piezas/TorreN.png"){
+                    if(destino_y==fichaE.get(i).getY())
+                    return i;
+                }
+            }
+        return 100;
+    }
 }

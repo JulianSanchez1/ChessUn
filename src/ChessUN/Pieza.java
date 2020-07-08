@@ -7,6 +7,7 @@ public class Pieza {
     public int y;
     final public boolean is_white;
     private final String color;
+    public boolean enroque;
     public Pieza(int x, int y, boolean is_white)
     {
         this.is_white = is_white;
@@ -52,9 +53,6 @@ public class Pieza {
                 int x1 = fichaE.get(i).getX();
                 int y1 = fichaE.get(i).getY();
                 if (destino_x==x1&&destino_y==y1){
-                    /*System.out.println(i);
-                    System.out.println(fichaE.get(i).getColor());
-                    System.out.println(destino_x+" "+destino_y+" "+x+" "+y);*/
                     return true;
                 }
             }
@@ -64,5 +62,9 @@ public class Pieza {
     public boolean canMove(int destination_x, int destination_y,ArrayList<Pieza> fichaE , ArrayList<Pieza> fichaA)
     {
         return false;
+    }
+        public boolean getEnroque()
+    {
+        return enroque;
     }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author julia
+ * @author Julian Sanchez
  */
 public class Reina extends Pieza{
     public String color;

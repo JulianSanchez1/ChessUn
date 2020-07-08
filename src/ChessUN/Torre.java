@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Torre extends Pieza{
     public String color;
+    public boolean enroque = true;
     public Torre(int x, int y, boolean is_white){
         super(x, y, is_white);
         if(is_white==true)
@@ -38,6 +39,7 @@ public class Torre extends Pieza{
                     }
                     if( i==destino_y)
                     {//Si llega al destino y no hay fichas en el camino acepta el movimiento
+                        enroque = false;
                         return true;
                     }
                     if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA))
@@ -46,6 +48,7 @@ public class Torre extends Pieza{
                     }
                     if(i==destino_y && Ficha_Presente(destino_x,destino_y,fichaE))
                     {//si hay una ficha en el destino y es enemiga puede matarla
+                        enroque = false;
                         return true;
                     }
                 }
@@ -59,10 +62,12 @@ public class Torre extends Pieza{
                     }
                     if( i==destino_y)
                     {
+                        enroque = false;
                         return true;
                     }
                     if( i==destino_y && Ficha_Presente(destino_x,destino_y,fichaE))
                     {
+                        enroque = false;
                         return true;
                     }
                     if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA))
@@ -80,6 +85,7 @@ public class Torre extends Pieza{
                 {                 
                     if(i==destino_x &&Ficha_Presente(destino_x,destino_y,fichaE))
                     {
+                        enroque = false;
                         return true;
                     }
                     if(Ficha_Presente(destino_x,destino_y,fichaA))
@@ -88,6 +94,7 @@ public class Torre extends Pieza{
                     }
                     if( i==destino_x)
                     {
+                        enroque = false;
                         return true;
                     }
                     if(Ficha_Presente(i,destino_y,fichaA)||Ficha_Presente(i,destino_y,fichaE))
@@ -106,10 +113,12 @@ public class Torre extends Pieza{
                     }
                     if( i==destino_x)
                     {
+                        enroque = false;
                         return true;
                     }
                     if( i==destino_x && Ficha_Presente(destino_x,destino_y,fichaE))
                     {
+                        enroque = false;
                         return true;
                     }
                     if(Ficha_Presente(i,destino_y,fichaA)||Ficha_Presente(i,destino_y,fichaE))
@@ -124,5 +133,9 @@ public class Torre extends Pieza{
     public String getColor()
     {
         return color;
+    }
+    public boolean getEnroque()
+    {
+        return enroque;
     }
 }
