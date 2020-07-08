@@ -39,7 +39,6 @@ public class Tablero{
         Piezas_Blancas.add(new Peon(6,5,true));
         Piezas_Blancas.add(new Peon(6,6,true));
         Piezas_Blancas.add(new Peon(6,7,true));
-
         Piezas_Negras.add(new Torre(0,0,false));
         Piezas_Negras.add(new Caballo(0,1,false));
         Piezas_Negras.add(new Arfil(0,2,false));
@@ -61,12 +60,10 @@ public class Tablero{
         {
             tableroB[Piezas_Blancas.get(i).getX()][Piezas_Blancas.get(i).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(i).getColor())));
         }
-        
         for (int i = 0; i < Piezas_Negras.size(); i++)
         {
             tableroB[Piezas_Negras.get(i).getX()][Piezas_Negras.get(i).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(i).getColor())));
         }
-        
     }
     public void CJ_Ordenar()
     {   
@@ -280,5 +277,8 @@ public class Tablero{
                 }
             }
         return 100;
+    }
+    public boolean getTurno(){
+        return turno;
     }
 }

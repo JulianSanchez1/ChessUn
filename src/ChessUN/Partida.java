@@ -10,6 +10,7 @@ public final class Partida extends javax.swing.JFrame {
     private Timer tiempo,tiempob;
     public int segundo=0,minuto=0, segundoB=0,minutoB=0;
     public Tablero tablero = new Tablero();
+    public boolean turn1;
     private ActionListener acciones1 = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -42,6 +43,20 @@ public final class Partida extends javax.swing.JFrame {
         tiempoN.setText(texto);
         String texto1 = (minutoB<=9?"0":"")+minutoB+":"+(segundoB<=9?"0":"")+segundoB;
         tiempoB.setText(texto1);
+    }
+    public void temporizador(boolean turn){
+        if(turn==true){
+            tiempo.stop();
+            tiempob.start();
+            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
+            TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
+        }
+        else{
+            tiempob.stop();
+            tiempo.start();
+            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
+            TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
+        }
     }
     public Partida(int m,boolean b) {
         
@@ -141,8 +156,6 @@ public final class Partida extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         tiempoN = new javax.swing.JLabel();
         tiempoB = new javax.swing.JLabel();
-        iniciar = new javax.swing.JButton();
-        iniciarb = new javax.swing.JButton();
         Titulo = new javax.swing.JLabel();
         Titulo1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -210,6 +223,8 @@ public final class Partida extends javax.swing.JFrame {
         f1 = new javax.swing.JButton();
         g1 = new javax.swing.JButton();
         h1 = new javax.swing.JButton();
+        TurnoNegras = new javax.swing.JLabel();
+        TurnoBlancas = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,22 +253,6 @@ public final class Partida extends javax.swing.JFrame {
         tiempoB.setText("00:00");
         getContentPane().add(tiempoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 304, 103, 44));
 
-        iniciar.setText("Iniciar");
-        iniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iniciarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 144, -1, -1));
-
-        iniciarb.setText("IniciarN");
-        iniciarb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iniciarbActionPerformed(evt);
-            }
-        });
-        getContentPane().add(iniciarb, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 325, -1, -1));
-
         Titulo.setFont(new java.awt.Font("Mathematica6", 3, 64)); // NOI18N
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Negras");
@@ -273,7 +272,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a8.setBackground(new java.awt.Color(255, 255, 255));
         a8.setBorderPainted(false);
-        a8.setFocusPainted(false);
         a8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a8ActionPerformed(evt);
@@ -283,7 +281,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b8.setBackground(new java.awt.Color(0, 0, 0));
         b8.setBorderPainted(false);
-        b8.setFocusPainted(false);
         b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ActionPerformed(evt);
@@ -293,7 +290,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c8.setBackground(new java.awt.Color(255, 255, 255));
         c8.setBorderPainted(false);
-        c8.setFocusPainted(false);
         c8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c8ActionPerformed(evt);
@@ -303,7 +299,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d8.setBackground(new java.awt.Color(0, 0, 0));
         d8.setBorderPainted(false);
-        d8.setFocusPainted(false);
         d8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d8ActionPerformed(evt);
@@ -313,7 +308,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e8.setBackground(new java.awt.Color(255, 255, 255));
         e8.setBorderPainted(false);
-        e8.setFocusPainted(false);
         e8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e8ActionPerformed(evt);
@@ -323,7 +317,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f8.setBackground(new java.awt.Color(0, 0, 0));
         f8.setBorderPainted(false);
-        f8.setFocusPainted(false);
         f8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f8ActionPerformed(evt);
@@ -333,7 +326,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g8.setBackground(new java.awt.Color(255, 255, 255));
         g8.setBorderPainted(false);
-        g8.setFocusPainted(false);
         g8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g8ActionPerformed(evt);
@@ -343,7 +335,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h8.setBackground(new java.awt.Color(0, 0, 0));
         h8.setBorderPainted(false);
-        h8.setFocusPainted(false);
         h8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h8ActionPerformed(evt);
@@ -353,7 +344,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a7.setBackground(new java.awt.Color(0, 0, 0));
         a7.setBorderPainted(false);
-        a7.setFocusPainted(false);
         a7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a7ActionPerformed(evt);
@@ -363,7 +353,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b7.setBackground(new java.awt.Color(255, 255, 255));
         b7.setBorderPainted(false);
-        b7.setFocusPainted(false);
         b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ActionPerformed(evt);
@@ -373,7 +362,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c7.setBackground(new java.awt.Color(0, 0, 0));
         c7.setBorderPainted(false);
-        c7.setFocusPainted(false);
         c7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c7ActionPerformed(evt);
@@ -383,7 +371,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d7.setBackground(new java.awt.Color(255, 255, 255));
         d7.setBorderPainted(false);
-        d7.setFocusPainted(false);
         d7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d7ActionPerformed(evt);
@@ -393,7 +380,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e7.setBackground(new java.awt.Color(0, 0, 0));
         e7.setBorderPainted(false);
-        e7.setFocusPainted(false);
         e7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e7ActionPerformed(evt);
@@ -403,7 +389,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f7.setBackground(new java.awt.Color(255, 255, 255));
         f7.setBorderPainted(false);
-        f7.setFocusPainted(false);
         f7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f7ActionPerformed(evt);
@@ -413,7 +398,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g7.setBackground(new java.awt.Color(0, 0, 0));
         g7.setBorderPainted(false);
-        g7.setFocusPainted(false);
         g7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g7ActionPerformed(evt);
@@ -423,7 +407,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h7.setBackground(new java.awt.Color(255, 255, 255));
         h7.setBorderPainted(false);
-        h7.setFocusPainted(false);
         h7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h7ActionPerformed(evt);
@@ -433,7 +416,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a6.setBackground(new java.awt.Color(255, 255, 255));
         a6.setBorderPainted(false);
-        a6.setFocusPainted(false);
         a6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a6ActionPerformed(evt);
@@ -443,7 +425,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b6.setBackground(new java.awt.Color(0, 0, 0));
         b6.setBorderPainted(false);
-        b6.setFocusPainted(false);
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
@@ -453,7 +434,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c6.setBackground(new java.awt.Color(255, 255, 255));
         c6.setBorderPainted(false);
-        c6.setFocusPainted(false);
         c6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c6ActionPerformed(evt);
@@ -463,7 +443,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d6.setBackground(new java.awt.Color(0, 0, 0));
         d6.setBorderPainted(false);
-        d6.setFocusPainted(false);
         d6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d6ActionPerformed(evt);
@@ -473,7 +452,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e6.setBackground(new java.awt.Color(255, 255, 255));
         e6.setBorderPainted(false);
-        e6.setFocusPainted(false);
         e6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e6ActionPerformed(evt);
@@ -483,7 +461,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f6.setBackground(new java.awt.Color(0, 0, 0));
         f6.setBorderPainted(false);
-        f6.setFocusPainted(false);
         f6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f6ActionPerformed(evt);
@@ -493,7 +470,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g6.setBackground(new java.awt.Color(255, 255, 255));
         g6.setBorderPainted(false);
-        g6.setFocusPainted(false);
         g6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g6ActionPerformed(evt);
@@ -503,7 +479,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h6.setBackground(new java.awt.Color(0, 0, 0));
         h6.setBorderPainted(false);
-        h6.setFocusPainted(false);
         h6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h6ActionPerformed(evt);
@@ -513,7 +488,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a5.setBackground(new java.awt.Color(0, 0, 0));
         a5.setBorderPainted(false);
-        a5.setFocusPainted(false);
         a5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a5ActionPerformed(evt);
@@ -523,7 +497,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b5.setBackground(new java.awt.Color(255, 255, 255));
         b5.setBorderPainted(false);
-        b5.setFocusPainted(false);
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -533,7 +506,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c5.setBackground(new java.awt.Color(0, 0, 0));
         c5.setBorderPainted(false);
-        c5.setFocusPainted(false);
         c5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c5ActionPerformed(evt);
@@ -543,7 +515,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d5.setBackground(new java.awt.Color(255, 255, 255));
         d5.setBorderPainted(false);
-        d5.setFocusPainted(false);
         d5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d5ActionPerformed(evt);
@@ -553,7 +524,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e5.setBackground(new java.awt.Color(0, 0, 0));
         e5.setBorderPainted(false);
-        e5.setFocusPainted(false);
         e5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e5ActionPerformed(evt);
@@ -563,7 +533,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f5.setBackground(new java.awt.Color(255, 255, 255));
         f5.setBorderPainted(false);
-        f5.setFocusPainted(false);
         f5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f5ActionPerformed(evt);
@@ -573,7 +542,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g5.setBackground(new java.awt.Color(0, 0, 0));
         g5.setBorderPainted(false);
-        g5.setFocusPainted(false);
         g5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g5ActionPerformed(evt);
@@ -583,7 +551,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h5.setBackground(new java.awt.Color(255, 255, 255));
         h5.setBorderPainted(false);
-        h5.setFocusPainted(false);
         h5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h5ActionPerformed(evt);
@@ -593,7 +560,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a4.setBackground(new java.awt.Color(255, 255, 255));
         a4.setBorderPainted(false);
-        a4.setFocusPainted(false);
         a4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a4ActionPerformed(evt);
@@ -603,7 +569,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b4.setBackground(new java.awt.Color(0, 0, 0));
         b4.setBorderPainted(false);
-        b4.setFocusPainted(false);
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -613,7 +578,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c4.setBackground(new java.awt.Color(255, 255, 255));
         c4.setBorderPainted(false);
-        c4.setFocusPainted(false);
         c4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c4ActionPerformed(evt);
@@ -623,7 +587,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d4.setBackground(new java.awt.Color(0, 0, 0));
         d4.setBorderPainted(false);
-        d4.setFocusPainted(false);
         d4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d4ActionPerformed(evt);
@@ -633,7 +596,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e4.setBackground(new java.awt.Color(255, 255, 255));
         e4.setBorderPainted(false);
-        e4.setFocusPainted(false);
         e4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e4ActionPerformed(evt);
@@ -643,7 +605,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f4.setBackground(new java.awt.Color(0, 0, 0));
         f4.setBorderPainted(false);
-        f4.setFocusPainted(false);
         f4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f4ActionPerformed(evt);
@@ -653,7 +614,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g4.setBackground(new java.awt.Color(255, 255, 255));
         g4.setBorderPainted(false);
-        g4.setFocusPainted(false);
         g4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g4ActionPerformed(evt);
@@ -663,7 +623,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h4.setBackground(new java.awt.Color(0, 0, 0));
         h4.setBorderPainted(false);
-        h4.setFocusPainted(false);
         h4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h4ActionPerformed(evt);
@@ -673,7 +632,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a3.setBackground(new java.awt.Color(0, 0, 0));
         a3.setBorderPainted(false);
-        a3.setFocusPainted(false);
         a3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a3ActionPerformed(evt);
@@ -683,7 +641,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b3.setBackground(new java.awt.Color(255, 255, 255));
         b3.setBorderPainted(false);
-        b3.setFocusPainted(false);
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -693,7 +650,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c3.setBackground(new java.awt.Color(0, 0, 0));
         c3.setBorderPainted(false);
-        c3.setFocusPainted(false);
         c3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c3ActionPerformed(evt);
@@ -703,7 +659,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d3.setBackground(new java.awt.Color(255, 255, 255));
         d3.setBorderPainted(false);
-        d3.setFocusPainted(false);
         d3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d3ActionPerformed(evt);
@@ -713,7 +668,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e3.setBackground(new java.awt.Color(0, 0, 0));
         e3.setBorderPainted(false);
-        e3.setFocusPainted(false);
         e3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e3ActionPerformed(evt);
@@ -723,7 +677,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f3.setBackground(new java.awt.Color(255, 255, 255));
         f3.setBorderPainted(false);
-        f3.setFocusPainted(false);
         f3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f3ActionPerformed(evt);
@@ -733,7 +686,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g3.setBackground(new java.awt.Color(0, 0, 0));
         g3.setBorderPainted(false);
-        g3.setFocusPainted(false);
         g3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g3ActionPerformed(evt);
@@ -743,7 +695,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h3.setBackground(new java.awt.Color(255, 255, 255));
         h3.setBorderPainted(false);
-        h3.setFocusPainted(false);
         h3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h3ActionPerformed(evt);
@@ -753,7 +704,6 @@ public final class Partida extends javax.swing.JFrame {
 
         a2.setBackground(new java.awt.Color(255, 255, 255));
         a2.setBorderPainted(false);
-        a2.setFocusPainted(false);
         a2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a2ActionPerformed(evt);
@@ -763,7 +713,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b2.setBackground(new java.awt.Color(0, 0, 0));
         b2.setBorderPainted(false);
-        b2.setFocusPainted(false);
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -773,7 +722,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c2.setBackground(new java.awt.Color(255, 255, 255));
         c2.setBorderPainted(false);
-        c2.setFocusPainted(false);
         c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ActionPerformed(evt);
@@ -783,7 +731,6 @@ public final class Partida extends javax.swing.JFrame {
 
         d2.setBackground(new java.awt.Color(0, 0, 0));
         d2.setBorderPainted(false);
-        d2.setFocusPainted(false);
         d2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d2ActionPerformed(evt);
@@ -793,7 +740,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e2.setBackground(new java.awt.Color(255, 255, 255));
         e2.setBorderPainted(false);
-        e2.setFocusPainted(false);
         e2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e2ActionPerformed(evt);
@@ -803,7 +749,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f2.setBackground(new java.awt.Color(0, 0, 0));
         f2.setBorderPainted(false);
-        f2.setFocusPainted(false);
         f2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f2ActionPerformed(evt);
@@ -813,7 +758,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g2.setBackground(new java.awt.Color(255, 255, 255));
         g2.setBorderPainted(false);
-        g2.setFocusPainted(false);
         g2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g2ActionPerformed(evt);
@@ -823,7 +767,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h2.setBackground(new java.awt.Color(0, 0, 0));
         h2.setBorderPainted(false);
-        h2.setFocusPainted(false);
         h2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h2ActionPerformed(evt);
@@ -843,7 +786,6 @@ public final class Partida extends javax.swing.JFrame {
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setBorderPainted(false);
-        b1.setFocusPainted(false);
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -853,7 +795,6 @@ public final class Partida extends javax.swing.JFrame {
 
         c1.setBackground(new java.awt.Color(0, 0, 0));
         c1.setBorderPainted(false);
-        c1.setFocusPainted(false);
         c1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c1ActionPerformed(evt);
@@ -872,7 +813,6 @@ public final class Partida extends javax.swing.JFrame {
 
         e1.setBackground(new java.awt.Color(0, 0, 0));
         e1.setBorderPainted(false);
-        e1.setFocusPainted(false);
         e1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e1ActionPerformed(evt);
@@ -882,7 +822,6 @@ public final class Partida extends javax.swing.JFrame {
 
         f1.setBackground(new java.awt.Color(255, 255, 255));
         f1.setBorderPainted(false);
-        f1.setFocusPainted(false);
         f1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f1ActionPerformed(evt);
@@ -892,7 +831,6 @@ public final class Partida extends javax.swing.JFrame {
 
         g1.setBackground(new java.awt.Color(0, 0, 0));
         g1.setBorderPainted(false);
-        g1.setFocusPainted(false);
         g1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g1ActionPerformed(evt);
@@ -902,7 +840,6 @@ public final class Partida extends javax.swing.JFrame {
 
         h1.setBackground(new java.awt.Color(255, 255, 255));
         h1.setBorderPainted(false);
-        h1.setFocusPainted(false);
         h1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h1ActionPerformed(evt);
@@ -911,6 +848,12 @@ public final class Partida extends javax.swing.JFrame {
         jPanel1.add(h1);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 35, -1, 410));
+
+        TurnoNegras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Apagado.png"))); // NOI18N
+        getContentPane().add(TurnoNegras, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 70, 30));
+
+        TurnoBlancas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Prendido.png"))); // NOI18N
+        getContentPane().add(TurnoBlancas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 70, 30));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
@@ -924,276 +867,389 @@ public final class Partida extends javax.swing.JFrame {
        Menu p=new Menu();
        p.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
-        tiempob.stop();
-        tiempo.start();
-        iniciar.setEnabled(false);
-        iniciarb.setEnabled(true);
-    }//GEN-LAST:event_iniciarActionPerformed
-
-    private void iniciarbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarbActionPerformed
-        tiempo.stop();
-        tiempob.start();
-        iniciarb.setEnabled(false);
-        iniciar.setEnabled(true);
-        //tiempo.stop();
-    }//GEN-LAST:event_iniciarbActionPerformed
-
+    
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
         tablero.mover(0,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b8ActionPerformed
 
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
         tablero.mover(1,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f7ActionPerformed
 
     private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
         tablero.mover(0,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a8ActionPerformed
 
     private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
         tablero.mover(7,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a1ActionPerformed
 
     private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
         tablero.mover(4,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f4ActionPerformed
 
     private void c8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c8ActionPerformed
         tablero.mover(0,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c8ActionPerformed
 
     private void d8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d8ActionPerformed
         tablero.mover(0,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d8ActionPerformed
 
     private void e8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e8ActionPerformed
         tablero.mover(0,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e8ActionPerformed
 
     private void f8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f8ActionPerformed
         tablero.mover(0,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f8ActionPerformed
 
     private void g8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g8ActionPerformed
         tablero.mover(0,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g8ActionPerformed
 
     private void h8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h8ActionPerformed
         tablero.mover(0,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h8ActionPerformed
 
     private void a7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a7ActionPerformed
         tablero.mover(1,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a7ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
         tablero.mover(1,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b7ActionPerformed
 
     private void c7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c7ActionPerformed
         tablero.mover(1,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c7ActionPerformed
 
     private void d7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d7ActionPerformed
         tablero.mover(1,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d7ActionPerformed
 
     private void e7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e7ActionPerformed
         tablero.mover(1,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e7ActionPerformed
 
     private void g7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g7ActionPerformed
         tablero.mover(1,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g7ActionPerformed
 
     private void h7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h7ActionPerformed
         tablero.mover(1,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h7ActionPerformed
 
     private void a6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a6ActionPerformed
         tablero.mover(2,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a6ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
         tablero.mover(2,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b6ActionPerformed
 
     private void c6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c6ActionPerformed
         tablero.mover(2,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c6ActionPerformed
 
     private void d6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d6ActionPerformed
         tablero.mover(2,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d6ActionPerformed
 
     private void e6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e6ActionPerformed
         tablero.mover(2,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e6ActionPerformed
 
     private void f6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f6ActionPerformed
         tablero.mover(2,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f6ActionPerformed
 
     private void g6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g6ActionPerformed
         tablero.mover(2,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g6ActionPerformed
 
     private void h6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h6ActionPerformed
         tablero.mover(2,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h6ActionPerformed
 
     private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
         tablero.mover(3,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a5ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
         tablero.mover(3,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b5ActionPerformed
 
     private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
         tablero.mover(3,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c5ActionPerformed
 
     private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
         tablero.mover(3,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d5ActionPerformed
 
     private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
         tablero.mover(3,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e5ActionPerformed
 
     private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
         tablero.mover(3,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f5ActionPerformed
 
     private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
         tablero.mover(3,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g5ActionPerformed
 
     private void h5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h5ActionPerformed
         tablero.mover(3,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h5ActionPerformed
 
     private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
         tablero.mover(4,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a4ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
         tablero.mover(4,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b4ActionPerformed
 
     private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
         tablero.mover(4,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c4ActionPerformed
 
     private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
         tablero.mover(4,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d4ActionPerformed
 
     private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
         tablero.mover(4,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e4ActionPerformed
 
     private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
         tablero.mover(4,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g4ActionPerformed
 
     private void h4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h4ActionPerformed
         tablero.mover(4,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h4ActionPerformed
 
     private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
         tablero.mover(5,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a3ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         tablero.mover(5,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
         tablero.mover(5,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c3ActionPerformed
 
     private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
         tablero.mover(5,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d3ActionPerformed
 
     private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
         tablero.mover(5,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e3ActionPerformed
 
     private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
         tablero.mover(5,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f3ActionPerformed
 
     private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
         tablero.mover(5,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g3ActionPerformed
 
     private void h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3ActionPerformed
         tablero.mover(5,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h3ActionPerformed
 
     private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
         tablero.mover(6,0);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_a2ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         tablero.mover(6,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b2ActionPerformed
 
     private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
         tablero.mover(6,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c2ActionPerformed
 
     private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
         tablero.mover(6,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d2ActionPerformed
 
     private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
         tablero.mover(6,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e2ActionPerformed
 
     private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
         tablero.mover(6,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f2ActionPerformed
 
     private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
         tablero.mover(6,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g2ActionPerformed
 
     private void h2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h2ActionPerformed
         tablero.mover(6,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h2ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         tablero.mover(7,1);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
         tablero.mover(7,2);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_c1ActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
         tablero.mover(7,3);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_d1ActionPerformed
 
     private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
         tablero.mover(7,4);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_e1ActionPerformed
 
     private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
         tablero.mover(7,5);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_f1ActionPerformed
 
     private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
         tablero.mover(7,6);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_g1ActionPerformed
 
     private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
         tablero.mover(7,7);
+        turn1=tablero.getTurno();
+        temporizador(turn1);
     }//GEN-LAST:event_h1ActionPerformed
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1206,6 +1262,8 @@ public static void main(String args[]) {
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo1;
+    private javax.swing.JLabel TurnoBlancas;
+    private javax.swing.JLabel TurnoNegras;
     private javax.swing.JButton a1;
     private javax.swing.JButton a2;
     private javax.swing.JButton a3;
@@ -1270,8 +1328,6 @@ public static void main(String args[]) {
     private javax.swing.JButton h6;
     private javax.swing.JButton h7;
     private javax.swing.JButton h8;
-    private javax.swing.JButton iniciar;
-    private javax.swing.JButton iniciarb;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel tiempoB;
