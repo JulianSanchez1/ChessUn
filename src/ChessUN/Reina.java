@@ -7,8 +7,7 @@ package ChessUN;
 
 import java.util.ArrayList;
 
-/**
- *
+/*
  * @author Julian Sanchez
  */
 public class Reina extends Pieza{
@@ -16,7 +15,7 @@ public class Reina extends Pieza{
     public Reina(int x, int y, boolean is_white){
         super(x, y, is_white);
         if(is_white==true)
-        {
+        {//Revisa el color de la pieza
             color="/Multimedia/Piezas/Dama.png";
         }
         else

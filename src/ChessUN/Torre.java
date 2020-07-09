@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ChessUN;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author julian Sanchez
+/*
+ * @author Julian Sanchez
  */
 public class Torre extends Pieza{
     public String color;
@@ -17,7 +11,7 @@ public class Torre extends Pieza{
     public Torre(int x, int y, boolean is_white){
         super(x, y, is_white);
         if(is_white==true)
-        {
+        {//Revisa cual es el color de la pieza
             color="/Multimedia/Piezas/Torre.png";
         }
         else
@@ -39,7 +33,7 @@ public class Torre extends Pieza{
                     }
                     if( i==destino_y)
                     {//Si llega al destino y no hay fichas en el camino acepta el movimiento
-                        enroque = false;
+                        enroque = false;//Si la torre se mueve a cualquier posicion ya no se puede hacer enroque 
                         return true;
                     }
                     if(Ficha_Presente(destino_x,i,fichaE)||Ficha_Presente(destino_x,i,fichaA))

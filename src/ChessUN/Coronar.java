@@ -1,12 +1,16 @@
 package ChessUN;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-
+/*
+ * @author Julian Sanchez
+ */
 public class Coronar extends javax.swing.JFrame {
     public int decision=0;
     public JFrame padre;
 
-    public Coronar(JFrame padre){
+    public Coronar(JFrame padre){//Intento de Coronar Fail 
         this.padre = padre;
         super.setIconImage(padre.getIconImage());
         initComponents();
@@ -162,8 +166,9 @@ public class Coronar extends javax.swing.JFrame {
         decision=4;
     }//GEN-LAST:event_jB_TorreActionPerformed
     public int getDecision(){
-        return decision;
+            return decision;
     }
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

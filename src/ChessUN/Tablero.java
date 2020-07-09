@@ -3,7 +3,9 @@ package ChessUN;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
+/*
+ * @author Julian Sanchez
+ */
 public class Tablero{
     public JButton tableroB[][] = new JButton[8][8];
     public ArrayList<Pieza> Piezas_Blancas;
@@ -22,7 +24,7 @@ public class Tablero{
         Piezas_CJ = new ArrayList();
     }
     public void OrdenarTablero()
-    {   
+    {   //Añade las piezas al tablero y coloca las imagenes en los botones
         Piezas_Blancas.add(new Torre(7,0,true));
         Piezas_Blancas.add(new Caballo(7,1,true));
         Piezas_Blancas.add(new Arfil(7,2,true));
@@ -57,149 +59,160 @@ public class Tablero{
         Piezas_Negras.add(new Peon(1,7,false));
        
         for (int i = 0; i < Piezas_Blancas.size(); i++)
-        {
+        {//Coloca las piezas blancas en el tablero
             tableroB[Piezas_Blancas.get(i).getX()][Piezas_Blancas.get(i).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(i).getColor())));
         }
         for (int i = 0; i < Piezas_Negras.size(); i++)
-        {
+        {//Coloca las piezas negras en el tablero
             tableroB[Piezas_Negras.get(i).getX()][Piezas_Negras.get(i).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(i).getColor())));
         }
     }
     public void mover(int x,int y){
-        if(click==0 && turno==true){
+        if(click==0 && turno==true)
+        {//Revisa si es el´1 clic y si el turno es de las blancas
             for (int i = 0; i < Piezas_Blancas.size(); i++)
-            {
+            {//Busca si pulzamos alguna ficha blanca
                 int x1 = Piezas_Blancas.get(i).getX();
                 int y1 = Piezas_Blancas.get(i).getY();
-                if (x==x1&&y==y1){
+                if (x==x1&&y==y1)
+                {//Obtiene la posicion de una ficha blanca si la pulsamos
                     temp=Piezas_Blancas.get(i);
                     num=i;
-                    click=1;
+                    click=1;//cambiamos click a uno para hacer el movimiento
                 }
             }
         }
-        else if(click==1&&turno==true&&Piezas_Blancas.get(num).canMove(x,y,Piezas_Negras,Piezas_Blancas)){
+        else if(click==1&&turno==true&&Piezas_Blancas.get(num).canMove(x,y,Piezas_Negras,Piezas_Blancas))
+        {//Revisa si click es uno, si el turno es de las blancas y si el movimiento es permitido
             boolean temp = true;
             for (int i = 0; i < Piezas_Blancas.size(); i++)
-            {
+            {//Revisa si a donde queremos llevar la ficha hay algun compañero
                 int x1 = Piezas_Blancas.get(i).getX();
                 int y1 = Piezas_Blancas.get(i).getY();
-                if (x==x1&&y==y1&&num!=i){
+                if (x==x1&&y==y1&&num!=i)
+                {
                     temp=false;
                     click=0;
                 }
             }
-            if(temp==true){
+            if(temp==true)
+            {//Si no hay ninguna ficha ejecuta
                 for (int i = 0; i < Piezas_Negras.size(); i++)
-                    {
+                    {//Revisa si en la posicion hay alguna ficha enemiga y la elimina
                         int x1 = Piezas_Negras.get(i).getX();
                         int y1 = Piezas_Negras.get(i).getY();
-                        if (x==x1&&y==y1){
+                        if (x==x1&&y==y1)
+                        {//Elimina la ficha enemiga
                             Piezas_Negras.remove(i);
                         }
                     }
                 if(Piezas_Blancas.get(num).getColor()=="/Multimedia/Piezas/Rey.png" && (y==2 || y==6))
-                {
+                {//Revisa si el movimiento es un enroque 
                     int ubicacion=100;
                     if(y==2)
-                    {
-                        ubicacion=enroque(7,0,Piezas_Blancas);
+                    {//ejecuta si el enroque es largo
+                        ubicacion=enroque(7,0,Piezas_Blancas);//Busca la ubicacion de la torre en piezas_blancas
                         if(ubicacion!=100)
-                        {
+                        {//quita la imagen de la torre y la ubica en su nueva posicion
                             tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(null);
                             Piezas_Blancas.get(ubicacion).setY(3);
                             tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(ubicacion).getColor())));
                         }
                     }
                     else
-                    {
-                        ubicacion=enroque(7,7,Piezas_Blancas);
+                    {//Ejecuta si el enroque es corto
+                        ubicacion=enroque(7,7,Piezas_Blancas);//Busca la ubicacion de la torre en piezas_blancas
                         if(ubicacion!=100)
-                        {
+                        {//quita la imagen de la torre y la ubica en su nueva posicion
                             tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(null);
                             Piezas_Blancas.get(ubicacion).setY(5);
                             tableroB[Piezas_Blancas.get(ubicacion).getX()][Piezas_Blancas.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(ubicacion).getColor())));
                         }
                     }        
                 }
-                tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
+                tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);//quita la imagen de la posicion inical
                 Piezas_Blancas.get(num).setX(x);
                 Piezas_Blancas.get(num).setY(y);
                 tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(num).getColor())));
+                //Coloca la imagen en la nueva posicion
                 click=0;
-                turno=false;
+                turno=false;//cambia de turno
             }   
         }
-        else if(click==0 && turno==false){
+        else if(click==0 && turno==false)
+        {//Si es el primer click y es turno de las negras ejecuta 
             for (int i = 0; i < Piezas_Negras.size(); i++)
-            {
+            {//Busca Si se pulso alguna pieza negra
                 int x1 = Piezas_Negras.get(i).getX();
                 int y1 = Piezas_Negras.get(i).getY();
-                if (x==x1&&y==y1){
+                if (x==x1&&y==y1)
+                {//Obtiene la informacion de la pieza
                     temp=Piezas_Negras.get(i);
                     num=i;
                     click=1;
                 }
             }
         }
-        else if(click==1&&turno==false&&Piezas_Negras.get(num).canMove(x,y,Piezas_Blancas,Piezas_Negras)){
+        else if(click==1&&turno==false&&Piezas_Negras.get(num).canMove(x,y,Piezas_Blancas,Piezas_Negras))
+        {//Revisa si click es uno, si el turno es de las negras y si el movimiento es permitido
             boolean temp = true;
             for (int i = 0; i < Piezas_Negras.size(); i++)
-            {
+            {//Busca si hay alguna pieza de su equipo en la posicion 
                 int x1 = Piezas_Negras.get(i).getX();
                 int y1 = Piezas_Negras.get(i).getY();
-                if (x==x1&&y==y1&&num!=i){
+                if (x==x1&&y==y1&&num!=i)
+                {
                     temp=false;
                     click=0;
                 }
             }
             if(temp==true){
                 for (int i = 0; i < Piezas_Blancas.size(); i++)
-                    {
+                    {//Revisa si en el destino hay alguna pieza enemiga en la elimina 
                         int x1 = Piezas_Blancas.get(i).getX();
                         int y1 = Piezas_Blancas.get(i).getY();
-                        if (x==x1&&y==y1){
+                        if (x==x1&&y==y1)
+                        {//Elimina la pieza enemiga
                             Piezas_Blancas.remove(i);
                         }
                     }
                 if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/PeonN.png" && x==7)
-                {
+                {//Intento de coronar Fail
                     Coronar coro=new Coronar();
                     coro.setVisible(true);
-                    //while(coro.getDecision()==0){
-                        System.out.println(coro.getDecision());
-                    //} 
+                    System.out.println(coro.getDecision());
+                    
                 }
                 if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/ReyN.png" && (y==2 || y==6))
-                {   
+                {//Revisa si el movimiento es un enroque
                     int ubicacion=100;
                     if(y==2)
-                    {
-                        ubicacion=enroque(7,0,Piezas_Negras);
+                    {//Revisa si es un enroque largo
+                        ubicacion=enroque(7,0,Piezas_Negras);//Busca la posicion en piezas negras de la torre
                         if(ubicacion!=100)
-                        {
+                        {//Borra la imagen de la torre en la posicion inicial y la mueve a la posicion final
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(null);
                             Piezas_Negras.get(ubicacion).setY(3);
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(ubicacion).getColor())));
                         }
                     }
                     else
-                    {
-                        ubicacion=enroque(0,7,Piezas_Negras);
+                    {//revisa si es un enroque corto
+                        ubicacion=enroque(0,7,Piezas_Negras);//Busca la posicion en piezas negras de la torre
                         if(ubicacion!=100)
-                        {
+                        {//Borra la imagen de la torre en la posicion inicial y la mueve a la posicion final
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(null);
                             Piezas_Negras.get(ubicacion).setY(5);
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(ubicacion).getColor())));
                         }
                     }           
                 }
-                tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
+                tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);//quita la imagen de la posicion inicial
                 Piezas_Negras.get(num).setX(x);
-                Piezas_Negras.get(num).setY(y);
-                tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));
+                Piezas_Negras.get(num).setY(y);//Coloca las nuevas posiciones 
+                tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));//Coloca la imagen en la nueva posicion
                 click=0;
-                turno=true;
+                turno=true;//cambia de turno
             }   
         }
         else{
@@ -209,7 +222,7 @@ public class Tablero{
     
     public int enroque(int destino_x, int destino_y , ArrayList<Pieza> fichaE){
         for (int i = 0; i < fichaE.size(); i++)
-            {
+            {//busca si hay una torre en la posicion que colocamos
                 int x1 = fichaE.get(i).getX();
                 int y1 = fichaE.get(i).getY();
                 if (fichaE.get(i).getColor()=="/Multimedia/Piezas/Torre.png" || fichaE.get(i).getColor()=="/Multimedia/Piezas/TorreN.png"){

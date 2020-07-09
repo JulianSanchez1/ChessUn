@@ -10,7 +10,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
-        Fondo p = new Fondo(true);
+        Fondo p = new Fondo(true);//Coloca el Fondo en el panel
         setContentPane(p);
         initComponents();
     }
@@ -111,19 +111,22 @@ public class Menu extends javax.swing.JFrame {
     private void jB_JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_JugarActionPerformed
         this.setVisible(true);
         Jugar p = new Jugar(this);
-        p.setVisible(true);
+        p.setVisible(true);//hace visible Jugar
     }//GEN-LAST:event_jB_JugarActionPerformed
 
     private void jB_ComoJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ComoJugarActionPerformed
-        this.setVisible(false);
+        this.setVisible(false);//Cierra el menu
         ComoJugar g=new ComoJugar();
-        g.setVisible(true);
+        g.setVisible(true);//hace visible como jugar
         
     }//GEN-LAST:event_jB_ComoJugarActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
+    public static void main(String args[]) 
+    {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+        public void run() 
+        {
         try {
             new Menu().setVisible(true);
                 Fondo frame = new Fondo(true);

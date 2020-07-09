@@ -13,7 +13,7 @@ public class Ganador extends javax.swing.JFrame {
     }
     public Ganador(boolean ganador) {
         initComponents();
-        if(ganador==true){
+        if(ganador==true){//Recibe el ganador y lo muestra en un JLabel
             Titulo1.setText("Ganan Blancas");
         }
         else{
@@ -88,9 +88,9 @@ public class Ganador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atrasActionPerformed
-        this.setVisible(false);
+        this.setVisible(false);//Cierra Ganador 
         Menu p=new Menu();
-        p.setVisible(true);
+        p.setVisible(true);//Hace visible el menu
     }//GEN-LAST:event_jB_atrasActionPerformed
 
     public static void main(String args[]) {

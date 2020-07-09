@@ -102,18 +102,18 @@ public class Jugar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atrasActionPerformed
-        this.setVisible(false);
-        padre.setVisible(true);
+        this.setVisible(false);//cierra como jugar 
+        padre.setVisible(true);//deja visible el menu
     }//GEN-LAST:event_jB_atrasActionPerformed
 
     private void diezmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diezmActionPerformed
-        try
+        try//si el boton 10 es pulsado
         {if(diezm.isSelected())
         {
            padre.setVisible(false);
-           Partida d=new Partida(10,true);
-           d.setVisible(true);
-           this.setVisible(false);
+           Partida d=new Partida(10,true);//Crea partida y envia el tiempo
+           d.setVisible(true);//hace visible partida
+           this.setVisible(false);//cierra Jugar
         }}catch(Exception e){}
     }//GEN-LAST:event_diezmActionPerformed
 
@@ -122,9 +122,9 @@ public class Jugar extends javax.swing.JFrame {
         {if(quincem.isSelected())
         {
            padre.setVisible(false);
-           Partida d=new Partida(15,true);
-           d.setVisible(true);
-           this.setVisible(false);
+           Partida d=new Partida(15,true);//Crea partida y envia el tiempo
+           d.setVisible(true);//Hace visible partida
+           this.setVisible(false);//cierra Jugar
         }}catch(Exception e){}
     }//GEN-LAST:event_quincemActionPerformed
 
@@ -133,9 +133,9 @@ public class Jugar extends javax.swing.JFrame {
         {if(sintiempo.isSelected())
         {
            padre.setVisible(false);
-           Partida d=new Partida(120,false);
-           d.setVisible(true);
-           this.setVisible(false);
+           Partida d=new Partida(120,false);//Crea partida y envia el tiempo
+           d.setVisible(true);//Hace visible partida
+           this.setVisible(false);//cierra Jugar
         }}catch(Exception e){}
     }//GEN-LAST:event_sintiempoActionPerformed
 
@@ -143,9 +143,9 @@ public class Jugar extends javax.swing.JFrame {
         try
         {if(cincom.isSelected()){
            padre.setVisible(false);
-           Partida d=new Partida(5,true);
-           d.setVisible(true);
-           this.setVisible(false);
+           Partida d=new Partida(5,true);//Crea partida y envia el tiempo
+           d.setVisible(true);//Hace visible partida
+           this.setVisible(false);//cierra Jugar
         }
         }catch(Exception e){}
     }//GEN-LAST:event_cincomActionPerformed

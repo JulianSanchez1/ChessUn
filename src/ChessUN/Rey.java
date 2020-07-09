@@ -7,8 +7,7 @@ package ChessUN;
 
 import java.util.ArrayList;
 
-/**
- *
+/*
  * @author Julian Sanchez
  */
 public class Rey extends Pieza{
@@ -28,7 +27,7 @@ public class Rey extends Pieza{
         /*if(Peligros_Rey(destino_x,destino_y,fichaE,fichaA)){
             System.out.println("A");
             return false;
-        }*/
+        }//Intento de detectar el los jaques*/
         if(destino_x==7 && (destino_y==2 || destino_y==6) && is_white==true && enroque==true){
             return enroque(destino_x,destino_y,fichaA);
         }
@@ -69,9 +68,10 @@ public class Rey extends Pieza{
         }
         return false;
     }
-    public boolean enroque(int destino_x, int destino_y,ArrayList<Pieza> fichaE){
+    public boolean enroque(int destino_x, int destino_y,ArrayList<Pieza> fichaE)
+    {
         for (int i = 0; i < fichaE.size(); i++)
-            {
+            {//Busca la Torres Y revisa si es posible hacer el jaque
                 int x1 = fichaE.get(i).getX();
                 int y1 = fichaE.get(i).getY();
                 if (fichaE.get(i).getColor()=="/Multimedia/Piezas/Torre.png" || fichaE.get(i).getColor()=="/Multimedia/Piezas/TorreN.png"){
@@ -80,7 +80,8 @@ public class Rey extends Pieza{
             }
         return false;
     }
-    public boolean Peligros_Rey(int destino_x, int destino_y,ArrayList<Pieza> fichaE,ArrayList<Pieza> fichaA){
+    public boolean Peligros_Rey(int destino_x, int destino_y,ArrayList<Pieza> fichaE,ArrayList<Pieza> fichaA)
+    {//Intento de detectar jaques Fail
         for (int i = 0; i < fichaE.size(); i++)
         {
             int x1 = fichaE.get(i).getX();

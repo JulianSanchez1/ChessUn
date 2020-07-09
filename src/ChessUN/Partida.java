@@ -11,10 +11,13 @@ public final class Partida extends javax.swing.JFrame {
     public int segundo=0,minuto=0, segundoB=0,minutoB=0;
     public Tablero tablero = new Tablero();
     public boolean time=true;
-    private ActionListener acciones1 = new ActionListener() {
+    private ActionListener acciones1 = new ActionListener() 
+    {//Piezas blancas
         @Override
-        public void actionPerformed(ActionEvent ae) {
-            if(segundoB==0){
+        public void actionPerformed(ActionEvent ae) 
+        {//Acciones que ejecuta cada segundo 
+            if(segundoB==0)
+            {//Si segundos es igual a 0 baja un minuto
                 minutoB--;
                 segundoB=60;
             }
@@ -22,10 +25,13 @@ public final class Partida extends javax.swing.JFrame {
             actualizarTiempo();
         }
     }; 
-    private ActionListener acciones = new ActionListener(){
+    private ActionListener acciones = new ActionListener()
+    {//Piezas Negras
         @Override
-        public void actionPerformed(ActionEvent ae) {
-            if(segundo==0){
+        public void actionPerformed(ActionEvent ae) 
+        {//Acciones que ejecuta cada segundo
+            if(segundo==0)
+            {//Si segundos es igual a 0 baja un minuto
                 minuto--;
                 segundo=60;
             }
@@ -34,81 +40,92 @@ public final class Partida extends javax.swing.JFrame {
         }
     }; 
 
-    private Partida() {
+    private Partida()
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void actualizarTiempo(){
+    public void actualizarTiempo()
+    {//actualiza el tiempo cada segundo
         String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
         tiempoN.setText(texto);
         String texto1 = (minutoB<=9?"0":"")+minutoB+":"+(segundoB<=9?"0":"")+segundoB;
-        if((minuto==0 && segundo==0) || (minutoB==0 && segundoB==0)){
+        if((minuto==0 && segundo==0) || (minutoB==0 && segundoB==0))
+        {//Revisa si se le acabo el tiempo a algun jugador y saca el ganador 
             Ganador();
         }
-        tiempoB.setText(texto1);
+        tiempoB.setText(texto1);//Actualiza la etiqueta del texto
     }
-    public void temporizador(boolean turn){
-        if(turn==true){
-            if(time==true){
-                tiempo.stop();
-                tiempob.start();
+    public void temporizador(boolean turn)
+    {
+        if(turn==true)
+        {//Revisa el turno y activa el temporizador del jugador del turno y apaga el del contricante
+            if(time==true)
+            {
+                tiempo.stop();//Apaga el temporizador del contrincante 
+                tiempob.start();//Prende el temporizador del jugador
             }
-            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
+            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));//Cambio de imagenes
             TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
         }
-        else{
-            if(time==true){
-                tiempob.stop();
-                tiempo.start();
+        else
+        {
+            if(time==true)
+            {
+                tiempob.stop();//Apaga el temporizador del contrincante 
+                tiempo.start();//Prende el temporizador del jugador
             }
-            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));
+            TurnoNegras.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Prendido.png")));//Cambio de imagenes
             TurnoBlancas.setIcon(new ImageIcon(getClass().getResource("/Multimedia/Apagado.png")));
         }
     }
-    public void Ganador(){
-        if(tablero.getTurno()==true){
-            this.setVisible(false);
-            Ganador g=new Ganador(false);
-            g.setVisible(true);
+    public void Ganador()
+    {
+        if(tablero.getTurno()==true)
+        {//revisa quien se le acabo el tiempo
+            this.setVisible(false);//Cierra la pestaña de la partida 
+            Ganador g=new Ganador(false);//Envia el ganador 
+            g.setVisible(true);//muestra la ventana ganador 
         }
-        else{
-            this.setVisible(false);
-            Ganador g=new Ganador(true);
-            g.setVisible(true);
+        else
+        {//revisa quien se le acabo el tiempo
+            this.setVisible(false);//Cierra la pestaña de la partida
+            Ganador g=new Ganador(true);//Envia el ganador 
+            g.setVisible(true);//muestra la ventana ganador 
         }
 
     }
-    public Partida(int m,boolean b) {
+    public Partida(int m,boolean b) 
+    {
         Fondo p = new Fondo(false);
         setContentPane(p);
         initComponents();
-        if(m==120){
+        if(m==120)
+        {//Revisa si se escogio sin tiempo
             time=false;
             tiempoN.setText("--:--");
             tiempoB.setText("--:--");
         }
-        if(time==true){
-            tiempo = new Timer(1000,acciones);
+        if(time==true)
+        {//Si se escogio con tiempo
+            tiempo = new Timer(1000,acciones);//Inicializa los tiempos de cada uno y escoge cada cuanto se van ha hacer las acciones
             tiempob = new Timer(1000,acciones1);
-            if (b == true){
+            if (b == true)
+            {//Inicializa los tiempos
                 minuto=m;
                 minutoB=m;
                 String texto = (minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
                 tiempoN.setText(texto);
                 tiempoB.setText(texto);
             }
-            else{
-                String texto = "";
-                tiempoN.setText(texto);
-                tiempoB.setText(texto);
-            }
         }
-        addBotonesT(tablero);
-        tablero.OrdenarTablero();
+        addBotonesT(tablero);//Añade los botones al tablero
+        tablero.OrdenarTablero();//Ordena el tablero
         
     }
-    public void addBotonesT(Tablero tablero){
-        tablero.addBotones(0,0,a8);
+    public void addBotonesT(Tablero tablero)
+    {
+        tablero.addBotones(0,0,a8);//Se añade cada boton a su posicion
         tablero.addBotones(0,1,b8);
         tablero.addBotones(0,2,c8);
         tablero.addBotones(0,3,d8);
@@ -898,14 +915,14 @@ public final class Partida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.setVisible(false);
+       this.setVisible(false);//Apaga partida 
        Menu p=new Menu();
-       p.setVisible(true);
+       p.setVisible(true);//Abre menu
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        tablero.mover(0,1);
-        temporizador(tablero.getTurno());
+        tablero.mover(0,1);//Cada Boton Envia su posicion 
+        temporizador(tablero.getTurno());//Actia el temporizador cuando se cambie de  turno
     }//GEN-LAST:event_b8ActionPerformed
 
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
