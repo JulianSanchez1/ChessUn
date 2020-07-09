@@ -1,5 +1,7 @@
 
 package ChessUN;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -98,14 +100,63 @@ public class Tablero{
             if(temp==true)
             {//Si no hay ninguna ficha ejecuta
                 for (int i = 0; i < Piezas_Negras.size(); i++)
-                    {//Revisa si en la posicion hay alguna ficha enemiga y la elimina
-                        int x1 = Piezas_Negras.get(i).getX();
-                        int y1 = Piezas_Negras.get(i).getY();
-                        if (x==x1&&y==y1)
-                        {//Elimina la ficha enemiga
-                            Piezas_Negras.remove(i);
-                        }
+                {//Revisa si en la posicion hay alguna ficha enemiga y la elimina
+                    int x1 = Piezas_Negras.get(i).getX();
+                    int y1 = Piezas_Negras.get(i).getY();
+                    if (x==x1&&y==y1)
+                    {//Elimina la ficha enemiga
+                        Piezas_Negras.remove(i);
                     }
+                }
+                if(Piezas_Blancas.get(num).getColor()=="/Multimedia/Piezas/Peon.png" && x==0)
+                {//Revisa si el peon ha llegado a la ultima casilla
+                    Coronar coro=new Coronar();
+                    coro.setVisible(true);//LLama a coronar 
+                    coro.jB_Dama.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Blancas.get(num).getX();
+                            int y2=Piezas_Blancas.get(num).getY();
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
+                            Piezas_Blancas.set(num,new Reina(x2,y2,true));//Cambia la ficha
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(num).getColor())));
+                        }
+                    });
+                    coro.jB_Arfil.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Blancas.get(num).getX();
+                            int y2=Piezas_Blancas.get(num).getY();
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
+                            Piezas_Blancas.set(num,new Arfil(x2,y2,true));//Cambia la ficha
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(num).getColor())));
+ 
+                        }
+                    }); 
+                    coro.jB_Caballo.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Blancas.get(num).getX();
+                            int y2=Piezas_Blancas.get(num).getY();
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
+                            Piezas_Blancas.set(num,new Caballo(x2,y2,true));//Cambia La Ficha
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(num).getColor())));
+ 
+                        }
+                    });
+                    coro.jB_Torre.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Blancas.get(num).getX();
+                            int y2=Piezas_Blancas.get(num).getY();
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(null);
+                            Piezas_Blancas.set(num,new Torre(x2,y2,true));//Cambia la Ficha 
+                            tableroB[Piezas_Blancas.get(num).getX()][Piezas_Blancas.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Blancas.get(num).getColor())));
+                        }
+                    });
+                    
+                    
+                }
                 if(Piezas_Blancas.get(num).getColor()=="/Multimedia/Piezas/Rey.png" && (y==2 || y==6))
                 {//Revisa si el movimiento es un enroque 
                     int ubicacion=100;
@@ -177,10 +228,53 @@ public class Tablero{
                         }
                     }
                 if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/PeonN.png" && x==7)
-                {//Intento de coronar Fail
+                {//Revisa si el peon ha llegado a la ultima casilla
                     Coronar coro=new Coronar();
-                    coro.setVisible(true);
-                    System.out.println(coro.getDecision());
+                    coro.setVisible(true);//LLama a coronar 
+                    coro.jB_Dama.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Negras.get(num).getX();
+                            int y2=Piezas_Negras.get(num).getY();
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
+                            Piezas_Negras.set(num,new Reina(x2,y2,false));//Cambia la ficha
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));
+                        }
+                    });
+                    coro.jB_Arfil.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Negras.get(num).getX();
+                            int y2=Piezas_Negras.get(num).getY();
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
+                            Piezas_Negras.set(num,new Arfil(x2,y2,false));//Cambia la ficha
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));
+ 
+                        }
+                    }); 
+                    coro.jB_Caballo.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Negras.get(num).getX();
+                            int y2=Piezas_Negras.get(num).getY();
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
+                            Piezas_Negras.set(num,new Caballo(x2,y2,false));//Cambia La Ficha
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));
+ 
+                        }
+                    });
+                    coro.jB_Torre.addActionListener(new ActionListener(){//Añadimos los eventos aqui para poder hacer el cambio
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int x2=Piezas_Negras.get(num).getX();
+                            int y2=Piezas_Negras.get(num).getY();
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
+                            Piezas_Negras.set(num,new Torre(x2,y2,false));//Cambia la Ficha 
+                            tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(num).getColor())));
+ 
+                        }
+                    });
+                    
                     
                 }
                 if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/ReyN.png" && (y==2 || y==6))

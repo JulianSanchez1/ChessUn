@@ -151,19 +151,19 @@ public class Coronar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_atrasActionPerformed
 
     private void jB_CaballoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CaballoActionPerformed
-        decision=1;
+        this.setVisible(false);
     }//GEN-LAST:event_jB_CaballoActionPerformed
 
     private void jB_ArfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ArfilActionPerformed
-        decision=2;
+        this.setVisible(false);
     }//GEN-LAST:event_jB_ArfilActionPerformed
 
     private void jB_DamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_DamaActionPerformed
-        decision=3;
+        this.setVisible(false);
     }//GEN-LAST:event_jB_DamaActionPerformed
 
     private void jB_TorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_TorreActionPerformed
-        decision=4;
+        this.setVisible(false);
     }//GEN-LAST:event_jB_TorreActionPerformed
     public int getDecision(){
             return decision;
@@ -180,10 +180,10 @@ public class Coronar extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel Titulo2;
-    private javax.swing.JButton jB_Arfil;
-    private javax.swing.JButton jB_Caballo;
-    private javax.swing.JButton jB_Dama;
-    private javax.swing.JButton jB_Torre;
+    public javax.swing.JButton jB_Arfil;
+    public javax.swing.JButton jB_Caballo;
+    public javax.swing.JButton jB_Dama;
+    public javax.swing.JButton jB_Torre;
     private javax.swing.JButton jB_atras;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;

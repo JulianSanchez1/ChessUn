@@ -267,7 +267,6 @@ public final class Partida extends javax.swing.JFrame {
         h1 = new javax.swing.JButton();
         TurnoNegras = new javax.swing.JLabel();
         TurnoBlancas = new javax.swing.JLabel();
-        ganador = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -900,13 +899,6 @@ public final class Partida extends javax.swing.JFrame {
         TurnoBlancas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/Prendido.png"))); // NOI18N
         getContentPane().add(TurnoBlancas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 70, 30));
 
-        ganador.setFont(new java.awt.Font("Mathematica6", 3, 40)); // NOI18N
-        ganador.setForeground(new java.awt.Color(255, 255, 255));
-        ganador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ganador.setText(" ");
-        ganador.setToolTipText("");
-        getContentPane().add(ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 340, -1));
-
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/FondoTablero.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
@@ -1308,7 +1300,6 @@ public static void main(String args[]) {
     private javax.swing.JButton g6;
     private javax.swing.JButton g7;
     private javax.swing.JButton g8;
-    private javax.swing.JLabel ganador;
     private javax.swing.JButton h1;
     private javax.swing.JButton h2;
     private javax.swing.JButton h3;
