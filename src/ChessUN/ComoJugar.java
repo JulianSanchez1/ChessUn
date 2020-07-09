@@ -8,7 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Graphics;
 
-public class ComoJugar extends javax.swing.JFrame {
+public class ComoJugar extends javax.swing.JFrame
+{
     public TableroCJ tableroCJ = new TableroCJ();
     public ComoJugar() {
         Fondo p = new Fondo(false);
@@ -879,13 +880,13 @@ public class ComoJugar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atrasActionPerformed
-        this.setVisible(false);
+        this.setVisible(false);//Cierra la pestaña como jugar
         Menu m=new Menu();
-        m.setVisible(true);
+        m.setVisible(true);//Abre la pestaña menu
     }//GEN-LAST:event_jB_atrasActionPerformed
 
     private void jB_TorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_TorreActionPerformed
-        jL_Tficha.setText("Torre");
+        jL_Tficha.setText("Torre");//Si se oprime la torre cambia los textos
         jL_Instrucciones.setText("La torre se mueve en una línea recta");
         jL_Instrucciones1.setText("horizontal o vertical a lo largo de");
         jL_Instrucciones3.setText("desocupadas, hasta que alcanza el");
@@ -895,11 +896,11 @@ public class ComoJugar extends javax.swing.JFrame {
         jL_Instrucciones6.setText("otras piezas.");
         jL_Instrucciones7.setText("");
         jL_Instrucciones8.setText("");
-        tableroCJ.CJTorre();
+        tableroCJ.CJTorre();//Coloca la torre en el tablero CJ
     }//GEN-LAST:event_jB_TorreActionPerformed
 
     private void jB_CaballoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CaballoActionPerformed
-        jL_Tficha.setText("Caballo");
+        jL_Tficha.setText("Caballo");//Si se oprime el caballo cambia los textos
         jL_Instrucciones.setText("El caballo es la única pieza del ");
         jL_Instrucciones1.setText("tablero que puede saltar sobre otras");
         jL_Instrucciones3.setText("casillas en dirección horizontal o");
@@ -909,9 +910,9 @@ public class ComoJugar extends javax.swing.JFrame {
         jL_Instrucciones6.setText("caballo tiene la forma de una “L”.");
         jL_Instrucciones7.setText("");
         jL_Instrucciones8.setText("");
-        tableroCJ.CJCaballo();
+        tableroCJ.CJCaballo();//Coloca el caballo en el tablero CJ
     }//GEN-LAST:event_jB_CaballoActionPerformed
-    public void addBotonesT(TableroCJ tablero){
+    public void addBotonesT(TableroCJ tablero){//Añadiendo los botones a El tableroCJ 
         tablero.addBotones(0,0,a8);
         tablero.addBotones(0,1,b8);
         tablero.addBotones(0,2,c8);
@@ -978,8 +979,8 @@ public class ComoJugar extends javax.swing.JFrame {
         tablero.addBotones(7,7,h1);
     }
     private void jB_ArfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ArfilActionPerformed
-        jL_Tficha.setText("Arfil");
-        tableroCJ.CJArfil();
+        jL_Tficha.setText("Arfil");//Si se oprime el Arfil cambia los textos
+        tableroCJ.CJArfil();//Coloca el arfil en el tablero CJ
         jL_Instrucciones.setText("El alfil se mueve sobre el tablero ");
         jL_Instrucciones1.setText("en una línea recta diagonal. Se ");
         jL_Instrucciones3.setText("se quiera, hasta que se encuentre con");
@@ -992,8 +993,8 @@ public class ComoJugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_ArfilActionPerformed
 
     private void jB_PeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_PeonActionPerformed
-        jL_Tficha.setText("Peon");
-        tableroCJ.CJPeon();
+        jL_Tficha.setText("Peon");//Si se oprime el peon cambia los textos
+        tableroCJ.CJPeon();//Coloca el peon en el tablero CJ
         jL_Instrucciones.setText("Los peones tienen un movimiento");
         jL_Instrucciones1.setText("inusual. Normalmente, el peón solo");
         jL_Instrucciones2.setText("se mueve hacia delante, una casilla");
@@ -1006,8 +1007,8 @@ public class ComoJugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_PeonActionPerformed
 
     private void jB_DamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_DamaActionPerformed
-        jL_Tficha.setText("Dama");
-        tableroCJ.CJReina();
+        jL_Tficha.setText("Dama");//Si se oprime la dama cambia los textos
+        tableroCJ.CJReina();//Coloca la reina en el tablero CJ
         jL_Instrucciones.setText("La reina se considera como la pieza más");
         jL_Instrucciones1.setText("poderosa del tablero. Se puede mover");
         jL_Instrucciones2.setText("cualquier número de casillas en línea");
@@ -1020,8 +1021,8 @@ public class ComoJugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_DamaActionPerformed
 
     private void jB_ReyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ReyActionPerformed
-        jL_Tficha.setText("Rey");
-        tableroCJ.CJRey();
+        jL_Tficha.setText("Rey");//Si se oprime el rey cambia los textos
+        tableroCJ.CJRey();//Coloca el rey en el tablero CJ
         jL_Instrucciones.setText("El rey es la pieza más importante del");
         jL_Instrucciones1.setText("ajedrez. Si el rey está sitiado,de ");
         jL_Instrucciones2.setText("manera que su captura es inevitable,");
@@ -1034,7 +1035,7 @@ public class ComoJugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_ReyActionPerformed
 
     private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
-        tableroCJ.moverCJ(0,0);
+        tableroCJ.moverCJ(0,0);//Envia los movimientos al tablero CJ
     }//GEN-LAST:event_a8ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
