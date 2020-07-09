@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 /*
  * @author Julian Sanchez
  */
+
 public class Tablero{
     public JButton tableroB[][] = new JButton[8][8];
     public ArrayList<Pieza> Piezas_Blancas;

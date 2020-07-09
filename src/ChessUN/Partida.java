@@ -6,6 +6,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.Timer;
 
+/*
+ * @author Julian Sanchez
+ */
+
 public final class Partida extends javax.swing.JFrame {
     private Timer tiempo,tiempob;
     public int segundo=0,minuto=0, segundoB=0,minutoB=0;

@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+/*
+ * @author Julian Sanchez
+ */
+
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {        

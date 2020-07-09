@@ -3,14 +3,16 @@ package ChessUN;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+
 /*
  * @author Julian Sanchez
  */
+
 public class Coronar extends javax.swing.JFrame {
     public int decision=0;
     public JFrame padre;
 
-    public Coronar(JFrame padre){//Intento de Coronar Fail 
+    public Coronar(JFrame padre){
         this.padre = padre;
         super.setIconImage(padre.getIconImage());
         initComponents();
@@ -24,7 +26,6 @@ public class Coronar extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jB_atras = new javax.swing.JButton();
         Titulo1 = new javax.swing.JLabel();
         jB_Caballo = new javax.swing.JButton();
         jB_Arfil = new javax.swing.JButton();
@@ -46,17 +47,6 @@ public class Coronar extends javax.swing.JFrame {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setPreferredSize(new java.awt.Dimension(464, 198));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jB_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Multimedia/atras2.png"))); // NOI18N
-        jB_atras.setBorder(null);
-        jB_atras.setBorderPainted(false);
-        jB_atras.setContentAreaFilled(false);
-        jB_atras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_atrasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jB_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
 
         Titulo1.setFont(new java.awt.Font("Mathematica6", 3, 44)); // NOI18N
         Titulo1.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,14 +134,8 @@ public class Coronar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jB_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_atrasActionPerformed
-        this.setVisible(false);
-        Menu p=new Menu();
-        p.setVisible(true);
-    }//GEN-LAST:event_jB_atrasActionPerformed
-
     private void jB_CaballoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CaballoActionPerformed
-        this.setVisible(false);
+        this.setVisible(false);//cierra el JFrame Coronar
     }//GEN-LAST:event_jB_CaballoActionPerformed
 
     private void jB_ArfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ArfilActionPerformed
@@ -165,9 +149,6 @@ public class Coronar extends javax.swing.JFrame {
     private void jB_TorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_TorreActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jB_TorreActionPerformed
-    public int getDecision(){
-            return decision;
-    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -184,7 +165,6 @@ public class Coronar extends javax.swing.JFrame {
     public javax.swing.JButton jB_Caballo;
     public javax.swing.JButton jB_Dama;
     public javax.swing.JButton jB_Torre;
-    private javax.swing.JButton jB_atras;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

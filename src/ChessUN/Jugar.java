@@ -2,6 +2,10 @@ package ChessUN;
 
 import javax.swing.JFrame;
 
+/*
+ * @author Julian Sanchez
+ */
+
 public class Jugar extends javax.swing.JFrame {
     
     public JFrame padre;

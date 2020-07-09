@@ -27,7 +27,7 @@ public class Rey extends Pieza{
         /*if(Peligros_Rey(destino_x,destino_y,fichaE,fichaA)){
             System.out.println("A");
             return false;
-        }//Intento de detectar el los jaques*/
+        }//Intento de detectar los peligros Fail*/
         if(destino_x==7 && (destino_y==2 || destino_y==6) && is_white==true && enroque==true){
             return enroque(destino_x,destino_y,fichaA);
         }
@@ -36,63 +36,58 @@ public class Rey extends Pieza{
         }
         if(destino_x==x+1 && ( (y - 1)== destino_y || (y + 1) == destino_y)){
            enroque = false;
-           return true;
+           return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_x==x-1 && ( (y - 1)== destino_y || (y + 1) == destino_y)){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y+1 && ( (x - 1)== destino_x || (x + 1) == destino_x)){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y-1 && ( (x - 1)== destino_x || (x + 1) == destino_x)){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y && x+1== destino_x ){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y && x-1== destino_x ){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y+1 && x== destino_x){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         if(destino_y==y-1 && x== destino_x ){
             enroque = false;
-            return true;
+            return Peligros_Rey(destino_x,destino_y,fichaE,fichaA);
         }
         return false;
     }
     public boolean enroque(int destino_x, int destino_y,ArrayList<Pieza> fichaE)
     {
         for (int i = 0; i < fichaE.size(); i++)
-            {//Busca la Torres Y revisa si es posible hacer el jaque
-                int x1 = fichaE.get(i).getX();
-                int y1 = fichaE.get(i).getY();
-                if (fichaE.get(i).getColor()=="/Multimedia/Piezas/Torre.png" || fichaE.get(i).getColor()=="/Multimedia/Piezas/TorreN.png"){
-                    return fichaE.get(i).getEnroque();
-                }
+        {//Busca la Torres Y revisa si es posible hacer el jaque
+            if (fichaE.get(i).getColor()=="/Multimedia/Piezas/Torre.png" || fichaE.get(i).getColor()=="/Multimedia/Piezas/TorreN.png")
+            {
+                return fichaE.get(i).getEnroque();
             }
+        }
         return false;
     }
     public boolean Peligros_Rey(int destino_x, int destino_y,ArrayList<Pieza> fichaE,ArrayList<Pieza> fichaA)
-    {//Intento de detectar jaques Fail
+    {//Intento de detectar jaques Funciona excepto peones
         for (int i = 0; i < fichaE.size(); i++)
-        {
-            int x1 = fichaE.get(i).getX();
-            int y1 = fichaE.get(i).getY();
-            if (fichaE.get(i).canMove(x,y,fichaE,fichaA)){
-                System.out.println("Sirvo");
-                return true;
-            }
+        {//Busca si alguna ficha Enemiga puede estar en esa posicion
+            if(fichaE.get(i).canMove(destino_x,destino_y,fichaA,fichaE)==true){
+                return false;
+            }  
         }
-        System.out.println("No Sirvo?");
-        return false;
+        return true;      
     }
     public String getColor()
     {
