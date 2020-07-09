@@ -9,14 +9,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Graphics;
 
 public class ComoJugar extends javax.swing.JFrame {
-    public Tablero tablero = new Tablero();
+    public TableroCJ tableroCJ = new TableroCJ();
     public ComoJugar() {
         Fondo p = new Fondo(false);
         
         setContentPane(p);
         initComponents();
-        addBotonesT(tablero); 
-        tablero.CJ_Ordenar();
+        addBotonesT(tableroCJ); 
+        tableroCJ.CJ_Ordenar();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -895,7 +895,7 @@ public class ComoJugar extends javax.swing.JFrame {
         jL_Instrucciones6.setText("otras piezas.");
         jL_Instrucciones7.setText("");
         jL_Instrucciones8.setText("");
-        tablero.CJTorre();
+        tableroCJ.CJTorre();
     }//GEN-LAST:event_jB_TorreActionPerformed
 
     private void jB_CaballoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CaballoActionPerformed
@@ -909,9 +909,9 @@ public class ComoJugar extends javax.swing.JFrame {
         jL_Instrucciones6.setText("caballo tiene la forma de una “L”.");
         jL_Instrucciones7.setText("");
         jL_Instrucciones8.setText("");
-        tablero.CJCaballo();
+        tableroCJ.CJCaballo();
     }//GEN-LAST:event_jB_CaballoActionPerformed
-    public void addBotonesT(Tablero tablero){
+    public void addBotonesT(TableroCJ tablero){
         tablero.addBotones(0,0,a8);
         tablero.addBotones(0,1,b8);
         tablero.addBotones(0,2,c8);
@@ -979,7 +979,7 @@ public class ComoJugar extends javax.swing.JFrame {
     }
     private void jB_ArfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ArfilActionPerformed
         jL_Tficha.setText("Arfil");
-        tablero.CJArfil();
+        tableroCJ.CJArfil();
         jL_Instrucciones.setText("El alfil se mueve sobre el tablero ");
         jL_Instrucciones1.setText("en una línea recta diagonal. Se ");
         jL_Instrucciones3.setText("se quiera, hasta que se encuentre con");
@@ -993,7 +993,7 @@ public class ComoJugar extends javax.swing.JFrame {
 
     private void jB_PeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_PeonActionPerformed
         jL_Tficha.setText("Peon");
-        tablero.CJPeon();
+        tableroCJ.CJPeon();
         jL_Instrucciones.setText("Los peones tienen un movimiento");
         jL_Instrucciones1.setText("inusual. Normalmente, el peón solo");
         jL_Instrucciones2.setText("se mueve hacia delante, una casilla");
@@ -1007,7 +1007,7 @@ public class ComoJugar extends javax.swing.JFrame {
 
     private void jB_DamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_DamaActionPerformed
         jL_Tficha.setText("Dama");
-        tablero.CJReina();
+        tableroCJ.CJReina();
         jL_Instrucciones.setText("La reina se considera como la pieza más");
         jL_Instrucciones1.setText("poderosa del tablero. Se puede mover");
         jL_Instrucciones2.setText("cualquier número de casillas en línea");
@@ -1021,7 +1021,7 @@ public class ComoJugar extends javax.swing.JFrame {
 
     private void jB_ReyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ReyActionPerformed
         jL_Tficha.setText("Rey");
-        tablero.CJRey();
+        tableroCJ.CJRey();
         jL_Instrucciones.setText("El rey es la pieza más importante del");
         jL_Instrucciones1.setText("ajedrez. Si el rey está sitiado,de ");
         jL_Instrucciones2.setText("manera que su captura es inevitable,");
@@ -1034,259 +1034,259 @@ public class ComoJugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_ReyActionPerformed
 
     private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
-        tablero.moverCJ(0,0);
+        tableroCJ.moverCJ(0,0);
     }//GEN-LAST:event_a8ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        tablero.moverCJ(0,1);
+        tableroCJ.moverCJ(0,1);
     }//GEN-LAST:event_b8ActionPerformed
 
     private void c8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c8ActionPerformed
-        tablero.moverCJ(0,2);
+        tableroCJ.moverCJ(0,2);
     }//GEN-LAST:event_c8ActionPerformed
 
     private void d8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d8ActionPerformed
-        tablero.moverCJ(0,3);
+        tableroCJ.moverCJ(0,3);
     }//GEN-LAST:event_d8ActionPerformed
 
     private void e8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e8ActionPerformed
-        tablero.moverCJ(0,4);
+        tableroCJ.moverCJ(0,4);
     }//GEN-LAST:event_e8ActionPerformed
 
     private void f8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f8ActionPerformed
-        tablero.moverCJ(0,5);
+        tableroCJ.moverCJ(0,5);
     }//GEN-LAST:event_f8ActionPerformed
 
     private void g8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g8ActionPerformed
-        tablero.moverCJ(0,6);
+        tableroCJ.moverCJ(0,6);
     }//GEN-LAST:event_g8ActionPerformed
 
     private void h8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h8ActionPerformed
-        tablero.moverCJ(0,7);
+        tableroCJ.moverCJ(0,7);
     }//GEN-LAST:event_h8ActionPerformed
 
     private void a7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a7ActionPerformed
-        tablero.moverCJ(1,0);
+        tableroCJ.moverCJ(1,0);
     }//GEN-LAST:event_a7ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-        tablero.moverCJ(1,1);
+        tableroCJ.moverCJ(1,1);
     }//GEN-LAST:event_b7ActionPerformed
 
     private void c7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c7ActionPerformed
-        tablero.moverCJ(1,2);
+        tableroCJ.moverCJ(1,2);
     }//GEN-LAST:event_c7ActionPerformed
 
     private void d7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d7ActionPerformed
-        tablero.moverCJ(1,3);
+        tableroCJ.moverCJ(1,3);
     }//GEN-LAST:event_d7ActionPerformed
 
     private void e7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e7ActionPerformed
-        tablero.moverCJ(1,4);
+        tableroCJ.moverCJ(1,4);
     }//GEN-LAST:event_e7ActionPerformed
 
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
-        tablero.moverCJ(1,5);
+        tableroCJ.moverCJ(1,5);
     }//GEN-LAST:event_f7ActionPerformed
 
     private void g7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g7ActionPerformed
-        tablero.moverCJ(1,6);
+        tableroCJ.moverCJ(1,6);
     }//GEN-LAST:event_g7ActionPerformed
 
     private void h7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h7ActionPerformed
-        tablero.moverCJ(1,7);
+        tableroCJ.moverCJ(1,7);
     }//GEN-LAST:event_h7ActionPerformed
 
     private void a6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a6ActionPerformed
-        tablero.moverCJ(2,0);
+        tableroCJ.moverCJ(2,0);
     }//GEN-LAST:event_a6ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        tablero.moverCJ(2,1);
+        tableroCJ.moverCJ(2,1);
     }//GEN-LAST:event_b6ActionPerformed
 
     private void c6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c6ActionPerformed
-        tablero.moverCJ(2,2);
+        tableroCJ.moverCJ(2,2);
     }//GEN-LAST:event_c6ActionPerformed
 
     private void d6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d6ActionPerformed
-        tablero.moverCJ(2,3);
+        tableroCJ.moverCJ(2,3);
     }//GEN-LAST:event_d6ActionPerformed
 
     private void e6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e6ActionPerformed
-        tablero.moverCJ(2,4);
+        tableroCJ.moverCJ(2,4);
     }//GEN-LAST:event_e6ActionPerformed
 
     private void f6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f6ActionPerformed
-        tablero.moverCJ(2,5);
+        tableroCJ.moverCJ(2,5);
     }//GEN-LAST:event_f6ActionPerformed
 
     private void g6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g6ActionPerformed
-        tablero.moverCJ(2,6);
+        tableroCJ.moverCJ(2,6);
     }//GEN-LAST:event_g6ActionPerformed
 
     private void h6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h6ActionPerformed
-        tablero.moverCJ(2,7);
+        tableroCJ.moverCJ(2,7);
     }//GEN-LAST:event_h6ActionPerformed
 
     private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
-        tablero.moverCJ(3,0);
+        tableroCJ.moverCJ(3,0);
     }//GEN-LAST:event_a5ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        tablero.moverCJ(3,1);
+        tableroCJ.moverCJ(3,1);
     }//GEN-LAST:event_b5ActionPerformed
 
     private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
-        tablero.moverCJ(3,2);
+        tableroCJ.moverCJ(3,2);
     }//GEN-LAST:event_c5ActionPerformed
 
     private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
-        tablero.moverCJ(3,3);
+        tableroCJ.moverCJ(3,3);
     }//GEN-LAST:event_d5ActionPerformed
 
     private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
-        tablero.moverCJ(3,4);
+        tableroCJ.moverCJ(3,4);
     }//GEN-LAST:event_e5ActionPerformed
 
     private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
-        tablero.moverCJ(3,5);
+        tableroCJ.moverCJ(3,5);
     }//GEN-LAST:event_f5ActionPerformed
 
     private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
-        tablero.moverCJ(3,6);
+        tableroCJ.moverCJ(3,6);
     }//GEN-LAST:event_g5ActionPerformed
 
     private void h5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h5ActionPerformed
-        tablero.moverCJ(3,7);
+        tableroCJ.moverCJ(3,7);
     }//GEN-LAST:event_h5ActionPerformed
 
     private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
-        tablero.moverCJ(4,0);
+        tableroCJ.moverCJ(4,0);
     }//GEN-LAST:event_a4ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        tablero.moverCJ(4,1);
+        tableroCJ.moverCJ(4,1);
     }//GEN-LAST:event_b4ActionPerformed
 
     private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
-        tablero.moverCJ(4,2);
+        tableroCJ.moverCJ(4,2);
     }//GEN-LAST:event_c4ActionPerformed
 
     private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
-        tablero.moverCJ(4,3);
+        tableroCJ.moverCJ(4,3);
     }//GEN-LAST:event_d4ActionPerformed
 
     private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
-        tablero.moverCJ(4,4);
+        tableroCJ.moverCJ(4,4);
     }//GEN-LAST:event_e4ActionPerformed
 
     private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
-        tablero.moverCJ(4,5);
+        tableroCJ.moverCJ(4,5);
     }//GEN-LAST:event_f4ActionPerformed
 
     private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
-        tablero.moverCJ(4,6);
+        tableroCJ.moverCJ(4,6);
     }//GEN-LAST:event_g4ActionPerformed
 
     private void h4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h4ActionPerformed
-        tablero.moverCJ(4,7);
+        tableroCJ.moverCJ(4,7);
     }//GEN-LAST:event_h4ActionPerformed
 
     private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
-        tablero.moverCJ(5,0);
+        tableroCJ.moverCJ(5,0);
     }//GEN-LAST:event_a3ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        tablero.moverCJ(5,1);
+        tableroCJ.moverCJ(5,1);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
-        tablero.moverCJ(5,2);
+        tableroCJ.moverCJ(5,2);
     }//GEN-LAST:event_c3ActionPerformed
 
     private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
-        tablero.moverCJ(5,3);
+        tableroCJ.moverCJ(5,3);
     }//GEN-LAST:event_d3ActionPerformed
 
     private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
-        tablero.moverCJ(5,4);
+        tableroCJ.moverCJ(5,4);
     }//GEN-LAST:event_e3ActionPerformed
 
     private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
-        tablero.moverCJ(5,5);
+        tableroCJ.moverCJ(5,5);
     }//GEN-LAST:event_f3ActionPerformed
 
     private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
-        tablero.moverCJ(5,6);
+        tableroCJ.moverCJ(5,6);
     }//GEN-LAST:event_g3ActionPerformed
 
     private void h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3ActionPerformed
-        tablero.moverCJ(5,7);
+        tableroCJ.moverCJ(5,7);
     }//GEN-LAST:event_h3ActionPerformed
 
     private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
-        tablero.moverCJ(6,0);
+        tableroCJ.moverCJ(6,0);
     }//GEN-LAST:event_a2ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        tablero.moverCJ(6,1);
+        tableroCJ.moverCJ(6,1);
     }//GEN-LAST:event_b2ActionPerformed
 
     private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
-        tablero.moverCJ(6,2);
+        tableroCJ.moverCJ(6,2);
     }//GEN-LAST:event_c2ActionPerformed
 
     private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
-        tablero.moverCJ(6,3);
+        tableroCJ.moverCJ(6,3);
     }//GEN-LAST:event_d2ActionPerformed
 
     private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
-        tablero.moverCJ(6,4);
+        tableroCJ.moverCJ(6,4);
     }//GEN-LAST:event_e2ActionPerformed
 
     private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
-        tablero.moverCJ(6,5);
+        tableroCJ.moverCJ(6,5);
     }//GEN-LAST:event_f2ActionPerformed
 
     private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
-        tablero.moverCJ(6,6);
+        tableroCJ.moverCJ(6,6);
     }//GEN-LAST:event_g2ActionPerformed
 
     private void h2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h2ActionPerformed
-        tablero.moverCJ(6,7);
+        tableroCJ.moverCJ(6,7);
     }//GEN-LAST:event_h2ActionPerformed
 
     private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
-        tablero.moverCJ(7,0);
+        tableroCJ.moverCJ(7,0);
     }//GEN-LAST:event_a1ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        tablero.moverCJ(7,1);
+        tableroCJ.moverCJ(7,1);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
-        tablero.moverCJ(7,2);
+        tableroCJ.moverCJ(7,2);
     }//GEN-LAST:event_c1ActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-        tablero.moverCJ(7,3);
+        tableroCJ.moverCJ(7,3);
     }//GEN-LAST:event_d1ActionPerformed
 
     private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
-        tablero.moverCJ(7,4);
+        tableroCJ.moverCJ(7,4);
     }//GEN-LAST:event_e1ActionPerformed
 
     private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
-        tablero.moverCJ(7,5);
+        tableroCJ.moverCJ(7,5);
     }//GEN-LAST:event_f1ActionPerformed
 
     private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
-        tablero.moverCJ(7,6);
+        tableroCJ.moverCJ(7,6);
     }//GEN-LAST:event_g1ActionPerformed
 
     private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
-        tablero.moverCJ(7,7);
+        tableroCJ.moverCJ(7,7);
     }//GEN-LAST:event_h1ActionPerformed
     
     public static void main(String args[]) {

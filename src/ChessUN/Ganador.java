@@ -38,7 +38,7 @@ public class Ganador extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cronometro");
+        setTitle("Ganador");
         setMaximumSize(new java.awt.Dimension(463, 200));
         setMinimumSize(new java.awt.Dimension(463, 200));
         setPreferredSize(new java.awt.Dimension(463, 220));

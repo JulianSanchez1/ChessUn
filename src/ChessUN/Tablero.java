@@ -65,73 +65,6 @@ public class Tablero{
             tableroB[Piezas_Negras.get(i).getX()][Piezas_Negras.get(i).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(i).getColor())));
         }
     }
-    public void CJ_Ordenar()
-    {   
-        Piezas_CJ.add(new Torre(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-
-    } 
-    public void CJCaballo()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);    
-        Piezas_CJ.set(0,new Caballo(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void CJTorre()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);
-        Piezas_CJ.set(0,new Torre(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void CJReina()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);
-        Piezas_CJ.set(0,new Reina(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void CJRey()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);
-        Piezas_CJ.set(0,new Rey(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void CJPeon()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);
-        Piezas_CJ.set(0,new Peon(6,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void CJArfil()
-    {   
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(null);
-        Piezas_CJ.set(0,new Arfil(4,2,true));
-        tableroB[Piezas_CJ.get(0).getX()][Piezas_CJ.get(0).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(0).getColor())));    
-    }
-    public void moverCJ(int x,int y){
-        if(click==0){
-            for (int i = 0; i < Piezas_CJ.size(); i++)
-            {
-                int x1 = Piezas_CJ.get(i).getX();
-                int y1 = Piezas_CJ.get(i).getY();
-                if (x==x1&&y==y1){
-                    temp=Piezas_CJ.get(i);
-                    num=i;
-                    click=1;
-                }
-            }
-        }
-        else if(click==1&&Piezas_CJ.get(num).canMove(x,y,Piezas_Negras,Piezas_CJ)){
-                tableroB[Piezas_CJ.get(num).getX()][Piezas_CJ.get(num).getY()].setIcon(null);
-                Piezas_CJ.get(num).setX(x);
-                Piezas_CJ.get(num).setY(y);
-                tableroB[Piezas_CJ.get(num).getX()][Piezas_CJ.get(num).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_CJ.get(num).getColor())));
-                click=0;
-                turno=false;
-        }
-        else{
-            click=0;
-        }
-    }
     public void mover(int x,int y){
         if(click==0 && turno==true){
             for (int i = 0; i < Piezas_Blancas.size(); i++)
@@ -229,12 +162,20 @@ public class Tablero{
                             Piezas_Blancas.remove(i);
                         }
                     }
-                if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/ReyN.png" && (y==2 || y==6))
+                if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/PeonN.png" && x==7)
                 {
+                    Coronar coro=new Coronar();
+                    coro.setVisible(true);
+                    //while(coro.getDecision()==0){
+                        System.out.println(coro.getDecision());
+                    //} 
+                }
+                if(Piezas_Negras.get(num).getColor()=="/Multimedia/Piezas/ReyN.png" && (y==2 || y==6))
+                {   
                     int ubicacion=100;
                     if(y==2)
                     {
-                        ubicacion=enroque(0,0,Piezas_Negras);
+                        ubicacion=enroque(7,0,Piezas_Negras);
                         if(ubicacion!=100)
                         {
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(null);
@@ -251,7 +192,7 @@ public class Tablero{
                             Piezas_Negras.get(ubicacion).setY(5);
                             tableroB[Piezas_Negras.get(ubicacion).getX()][Piezas_Negras.get(ubicacion).getY()].setIcon(new ImageIcon(getClass().getResource(Piezas_Negras.get(ubicacion).getColor())));
                         }
-                    }              
+                    }           
                 }
                 tableroB[Piezas_Negras.get(num).getX()][Piezas_Negras.get(num).getY()].setIcon(null);
                 Piezas_Negras.get(num).setX(x);

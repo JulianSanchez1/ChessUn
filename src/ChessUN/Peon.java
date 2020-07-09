@@ -29,17 +29,26 @@ public class Peon extends Pieza{
         if(is_white==true){
             if(x==6){
                 if(destino_x==4 && y== destino_y && !Ficha_Presente(destino_x,destino_y,fichaE)){
-                    return true;
+                return true;
                 }
             }
             if(destino_x==(x-1) && y== destino_y && !Ficha_Presente(destino_x,destino_y,fichaE) ){
-                    return true;
+                if (x==0){
+                    
+                }
+                return true;
             }
             if(destino_x==(x-1) && (y + 1)== destino_y && Ficha_Presente(destino_x,destino_y,fichaE)){
-                    return true;
+                if (x==0){
+                    
+                }
+                return true;
             }
             if(destino_x==(x-1) && (y - 1)== destino_y && Ficha_Presente(destino_x,destino_y,fichaE)){
-                    return true;
+                if (x==0){
+                    
+                }
+                return true;
             }
             else{
                 return false;
@@ -49,7 +58,7 @@ public class Peon extends Pieza{
         else{
             if(x==1){
                 if(destino_x==3 && y== destino_y && !Ficha_Presente(destino_x,destino_y,fichaE)){
-                return true;
+                    return true;
                 }
             }
             if(destino_x==x+1 && y== destino_y && !Ficha_Presente(destino_x,destino_y,fichaE) ){
